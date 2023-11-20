@@ -2,7 +2,7 @@
     <!-- #region DATA -->
     <Data
         name="user"
-        defaultValue='{"json":{ "firstName": "Aileen" },"email":""}'
+        defaultValue='{"json":{ "firstName": "" },"email":""}'
     />
     <!-- #endregion DATA -->
 
