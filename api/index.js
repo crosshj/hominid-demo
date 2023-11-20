@@ -1,12 +1,15 @@
 const { readFileSync } = require('fs');
 const localServer = require('../server/server');
 
+const DEFAULT_TOKEN =
+	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImN0IiwiZW1haWwiOiJhdHdvcmtyb2xlK2NoaWxkQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6IkNoaWxkIiwibGFzdE5hbWUiOiJUZW5hbnQiLCJicmFuY2hJZCI6MSwicm9sZUlkIjo1LCJ0ZW5hbnRJZCI6MX0.4cu0yJYvMvzW50aRGwAKEzNK7YqCHBvdF-nZ9CwUxh8';
+
 const graphqlRequest = async (req, res) => {
 	try {
 		// const token = req?.cookies?.token;
 		// const accessToken = req?.cookies?.accessToken;
-		const accessToken = process.env.TEST_TOKEN;
-		const token = process.env.TEST_TOKEN;
+		const accessToken = process.env.TEST_TOKEN || DEFAULT_TOKEN;
+		const token = process.env.TEST_TOKEN || DEFAULT_TOKEN;
 		const { operationName, variables } = req?.body;
 
 		const newInput = (input) => {
@@ -47,7 +50,9 @@ const graphqlRequest = async (req, res) => {
 				...req.headers,
 			},
 		};
-		const { headers, statusCode, body } = await localServer.query(localOpts);
+		const { headers, statusCode, body } = await localServer.query(
+			localOpts
+		);
 		for (const [name, value] of Object.entries(headers)) {
 			res.setHeader(name, value);
 		}
