@@ -11,7 +11,8 @@ import { Intro } from './components/Intro';
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);
 const components = {
-	Intro,
+	Container,
+	Layout,
 };
 const page = {
 	fragment: 'helloWorld',

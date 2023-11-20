@@ -14,7 +14,6 @@ const graphqlConfig = {
 		allowed: ['http://localhost:3000'],
 	},
 };
-console.log({ graphqlConfig });
 module.exports.query = server.getQueryHandler(graphqlConfig);
 module.exports.agent = () => console.log('TODO:agent.messageConsumer');
 module.exports.pdf = () => console.log('TODO:pdf.handler');
