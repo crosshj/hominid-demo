@@ -1,0 +1,58 @@
+<Page>
+    <!-- #region DATA -->
+    <!-- #endregion DATA -->
+
+    <!-- #region FLOWS -->
+    <Flow key="goHome">
+        <Navigate
+            hard="true"
+            route='/'
+        />
+    </Flow>
+    <!-- #endregion FLOWS -->
+
+    <!-- PAGE CONTENT -->
+    <Box
+        width="100vw"
+        height="100vh"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="#777"
+    >
+        <Box
+            backgroundColor="white"
+            p="3"
+            minWidth="600px"
+            borderRadius="5px"
+            mt="1em"
+        >
+            <Typography
+                variant="h2"
+                mt="2"
+            >
+                Uh oh!
+            </Typography>
+            <Markdown>
+                Something went wrong...
+            </Markdown>
+            <Box
+                gap="2"
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+            >
+                <Button
+                    href="flow:goHome"
+                    variant="primary"
+                    sx:marginLeft="auto"
+                    sx:mt="2"
+                >
+                    Go Home
+                </Button>
+            </Box>
+        </Box>
+    </Box>
+
+</Page>

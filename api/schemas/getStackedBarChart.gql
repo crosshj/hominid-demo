@@ -1,0 +1,8 @@
+query getStackedBarCharts($name: String) {
+	sp_GetStackedBarCharts(ChartName: $name) {
+		color
+		order
+		value
+		label
+	}
+}

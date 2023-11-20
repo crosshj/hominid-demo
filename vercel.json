@@ -1,0 +1,13 @@
+{
+    "framework": "vite",
+    "rewrites": [
+        {
+            "source": "/api/auth/(.*)",
+            "destination": "/api/auth"
+        },
+        {
+            "source": "/api/(.*)",
+            "destination": "/api"
+        }
+    ]
+}
