@@ -1,10 +1,12 @@
 <Page>
-    <!-- #region DATA -->
-    <Data
-        name="user"
-        defaultValue='{"json":{ "firstName": "" },"email":""}'
-    />
-    <!-- #endregion DATA -->
+	<Layout>
+		<Logo width="150px" />
+		<Header></Header>
+		<Menu></Menu>
+		<Footer></Footer>
+		<Sidebar></Sidebar>
+	</Layout>
+</Page>
 
 <!-- <Page>
 	<Data
@@ -19,80 +21,34 @@
 			Name: {{ global_user.json.firstName }}
 			{{ global_user.json.lastName }} Email: {{ global_user.email }}
 
-            This will not be submitted to any API; it's just here for you to see!
-        </Confirm>
-    </Flow>
-    <!-- #endregion FLOWS -->
-
-    <!-- PAGE CONTENT -->
-    <Box
-        width="100vw"
-        height="100vh"
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        mt="-2em"
-    >
-        <Logo width="300px" />
-
-
-        <Box
-            backgroundColor="white"
-            p="3"
-            minWidth="600px"
-            borderRadius="5px"
-            mt="1em"
-        >
-            <Typography
-                variant="h2"
-                mt="2"
-            >
-                Hello, World!
-            </Typography>
-            <Markdown>
-                Demonstration of form submit!
-            </Markdown>
-
-            
-            <Markdown>
-                Hellooooooooooooo!!
-            </Markdown>
-
-            <Intro>
-                Xoxo
-             </Intro>
-
-            <Box
-                gap="2"
-                display="flex"
-                flexDirection="column"
-                alignItems="flex-start"
-                mt="4"
-                mb="2"
-            >
-                <TextField
-                    label="First Name"
-                    value="global_user.json.firstName"
-                />
-                <TextField
-                    label="Last Name"
-                    value="global_user.json.lastName"
-                />
-                <TextField
-                    label="Email"
-                    value="global_user.email"
-                />
-                <Button
-                    href="flow:exampleFormSubmit"
-                    variant="primary"
-                    sx:margin="auto"
-                    sx:mt="2"
-                >
-                    Continue
-                </Button>
-            </Box>
-        </Box>
-    </Box>
-
-</Page>
+			This will not be submitted to any API; it's just here for you to
+			see!
+		</Confirm>
+	</Flow>
+	<Container
+		title="Hello, World!"
+		slug="Demonstration of form submit!"
+	>
+		<Logo width="300px" />
+		<TextField
+			label="First Name"
+			value="global_user.json.firstName"
+		/>
+		<TextField
+			label="Last Name"
+			value="global_user.json.lastName"
+		/>
+		<TextField
+			label="Email"
+			value="global_user.email"
+		/>
+		<Button
+			href="flow:exampleFormSubmit"
+			variant="primary"
+			sx:margin="auto"
+			sx:mt="2"
+		>
+			Continue
+		</Button>
+	</Container>
+</Page> -->

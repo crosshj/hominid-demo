@@ -1,6 +1,6 @@
 export const getLogo = (mode) =>
-  `
-  <svg version="1.0" width="100pt" height="25pt" viewBox="0 0 100.000000 25.000000" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+	`
+  <svg version="1.0" width="100pt" height="25pt" viewBox="0 -2.5 100.000000 25.00000" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
   <defs>
     <style bx:fonts="Acme">@import url(https://fonts.googleapis.com/css2?family=Acme%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
   </defs>
