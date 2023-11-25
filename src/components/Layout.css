@@ -20,11 +20,12 @@
 	padding: 1em;
 }
 nav {
-	background-color: rgb(180, 255, 255);
+	background-color: rgb(88, 88, 155);
 }
 
 .main-head {
 	grid-area: header;
+	background-color: rgb(234, 234, 235), 0, 0);
 }
 .content {
 	grid-area: content;
@@ -63,6 +64,7 @@ nav {
 	nav ul {
 		display: flex;
 		justify-content: space-between;
+		list-style: none;
 	}
 }
 @media (min-width: 700px) {

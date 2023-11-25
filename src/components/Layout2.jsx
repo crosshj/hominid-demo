@@ -14,17 +14,37 @@ export const Layout = (args) => {
 	console.log({ args });
 	return (
 		<div className="wrapper">
-			<header className="main-head">{Logo}</header>
+			<header className="main-head">
+				{Logo}
+
+				<div class="extra-nav">
+					<ul>
+						<li>Profile</li>
+						<li>Inbox</li>
+						<li>Notifications</li>
+					</ul>
+				</div>
+			</header>
+
 			<nav className="main-nav">
 				<ul>
 					<li>
-						<a href="">Menu 1</a>
+						<a href="">Home</a>
 					</li>
 					<li>
-						<a href="">Nav 2</a>
+						<a href="">Browse</a>
 					</li>
 					<li>
-						<a href="">Nav 3</a>
+						<a href="">Post</a>
+					</li>
+					<li>
+						<a href="">Profile</a>
+					</li>
+					<li>
+						<a href="">Messages</a>
+					</li>
+					<li>
+						<a href="">Notifications</a>
 					</li>
 				</ul>
 			</nav>
