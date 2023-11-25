@@ -5,8 +5,8 @@
 }
 .main-head {
 	background-color: rgb(156, 42, 48);
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 .side {
 	background-color: rgb(255, 197, 197);
@@ -20,7 +20,8 @@
 	padding: 1em;
 }
 nav {
-	background-color: rgb(180, 255, 255);
+	background-color: rgb(156, 42, 48);
+	color: white;
 }
 
 .main-head {
@@ -52,7 +53,7 @@ nav {
 }
 @media (min-width: 500px) {
 	.wrapper {
-		grid-template-columns: 1fr 3fr;
+		grid-template-columns: auto 3fr;
 		grid-template-rows: auto auto 1fr auto;
 		grid-template-areas:
 			'header  header'
@@ -60,22 +61,15 @@ nav {
 			'content content'
 			'footer  footer';
 	}
-	nav ul {
-		display: flex;
-		justify-content: space-between;
-	}
 }
 @media (min-width: 700px) {
 	.wrapper {
-		grid-template-columns: 1fr 4fr 1fr;
+		grid-template-columns: auto 4fr 1fr;
 		grid-template-rows: auto 1fr 1fr auto;
 		grid-template-areas:
 			'header header  header'
 			'nav    content content'
 			'nav    content content'
 			'footer footer  footer';
-	}
-	nav ul {
-		flex-direction: column;
 	}
 }

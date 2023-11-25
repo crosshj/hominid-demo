@@ -11,23 +11,13 @@ export const Layout = (args) => {
 	const { slug, title, children } = args;
 	const childItems = children[1].filter((x) => x.props.type !== 'Logo');
 	const Logo = children[1].find((x) => x.props.type === 'Logo');
+	const Menu = children[1].find((x) => x.props.type === 'Menu');
+
 	console.log({ args });
 	return (
 		<div className="wrapper">
 			<header className="main-head">{Logo}</header>
-			<nav className="main-nav">
-				<ul>
-					<li>
-						<a href="">Nav 1</a>
-					</li>
-					<li>
-						<a href="">Nav 2</a>
-					</li>
-					<li>
-						<a href="">Nav 3</a>
-					</li>
-				</ul>
-			</nav>
+			<nav className="main-nav">{Menu}</nav>
 			<article className="content">
 				<h1>Main article area</h1>
 				<p>

@@ -1,8 +1,16 @@
 <Page>
+	<Data
+		name="menus"
+		getData="rootChild"
+	/>
+
 	<Layout>
 		<Logo width="150px" />
 		<Header></Header>
-		<Menu></Menu>
+		<Menu
+			items="global_menus"
+			route="global_pathData"
+		/>
 		<Footer></Footer>
 		<Sidebar></Sidebar>
 	</Layout>
