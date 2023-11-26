@@ -1,33 +1,49 @@
+import { useState } from 'react';
 import './Menu.css';
 
-const MenuItem = (item, i) => {
-	const { label, key, selected } = item;
+const getMenuItems = ({ items }) => {
+	let menuItems = items;
+	try {
+		const fromSession = sessionStorage.getItem('menuItems');
+		const fromSessionParsed = JSON.parse(fromSession);
+		if (Array.isArray(fromSessionParsed)) {
+			menuItems = fromSessionParsed;
+		}
+		if (Array.isArray(items) && items.length) {
+			sessionStorage.setItem('menuItems', JSON.stringify(items));
+		}
+	} catch (e) {}
+	return menuItems;
+};
+
+const MenuItem = ({ item, i, selected, setSelected }) => {
+	const { label, key } = item;
+	const isSelected = selected === key;
 	const className = Object.entries({
-		selected,
+		selected: isSelected,
 	})
 		.filter(([k, v]) => !!v)
 		.map(([k, v]) => k)
 		.join(' ');
-	//console.log(item);
 	return (
 		<li
 			key={`menu-item-` + i}
 			className={className}
 		>
-			<a href={key}>{label}</a>
+			<a
+				href={key}
+				onClick={() => setSelected(key)}
+			>
+				{label}
+			</a>
 		</li>
 	);
 };
 export const Menu = (menuArgs) => {
-	const selected = '/' + document.location.hash;
-	const { items } = menuArgs;
-	for (var item of items) {
-		if (item.key === selected) {
-			item.selected = true;
-			break;
-		}
-	}
-	console.log({ menuArgs });
+	const [selected, setSelected] = useState('/' + document.location.hash);
+	const items = getMenuItems(menuArgs);
+	const MapMenuItem = (item, i) =>
+		MenuItem({ item, i, selected, setSelected });
 	if (!Array.isArray(items)) return null;
-	return <ul>{items.map(MenuItem)}</ul>;
+	return <ul>{items.map(MapMenuItem)}</ul>;
 };

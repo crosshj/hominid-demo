@@ -7,7 +7,7 @@ const menu = [
 	},
 	{
 		key: '/#/framework/addIssue',
-		label: 'Add Issue',
+		label: '+Issue',
 		order: '3',
 		properties: 'icon:Add',
 	},
@@ -25,7 +25,7 @@ const menu = [
 	},
 	{
 		key: '/#/framework/gantt',
-		label: 'Gantt Chart',
+		label: 'Gantt',
 		order: '4.3',
 		properties: 'icon:Analytics',
 	},
@@ -43,7 +43,7 @@ const menu = [
 	},
 	{
 		key: '/#/framework/projectSettings',
-		label: 'Project Settings',
+		label: 'Settings',
 		order: '10',
 		properties: 'icon:Settings',
 	},

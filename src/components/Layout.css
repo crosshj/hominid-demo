@@ -43,33 +43,33 @@ nav {
 .wrapper {
 	display: grid;
 	gap: 0px;
-	grid-template-rows: auto auto 1fr 1fr auto;
+	grid-template-rows: auto auto 1fr 1fr;
 	grid-template-areas:
 		'header'
 		'nav'
 		'content'
-		'content'
-		'footer';
+		'content';
+	/* 'footer'; */
 }
 @media (min-width: 500px) {
 	.wrapper {
 		grid-template-columns: auto 3fr;
-		grid-template-rows: auto auto 1fr auto;
+		grid-template-rows: auto auto 1fr;
 		grid-template-areas:
 			'header  header'
 			'nav     nav'
-			'content content'
-			'footer  footer';
+			'content content';
+		/* 'footer  footer'; */
 	}
 }
 @media (min-width: 700px) {
 	.wrapper {
 		grid-template-columns: auto 4fr 1fr;
-		grid-template-rows: auto 1fr 1fr auto;
+		grid-template-rows: auto 1fr 1fr;
 		grid-template-areas:
 			'header header  header'
 			'nav    content content'
-			'nav    content content'
-			'footer footer  footer';
+			'nav    content content';
+		/* 'footer footer  footer'; */
 	}
 }

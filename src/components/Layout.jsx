@@ -13,7 +13,6 @@ export const Layout = (args) => {
 	const Logo = children[1].find((x) => x.props.type === 'Logo');
 	const Menu = children[1].find((x) => x.props.type === 'Menu');
 
-	console.log({ args });
 	return (
 		<div className="wrapper">
 			<header className="main-head">{Logo}</header>
@@ -130,7 +129,7 @@ export const Layout = (args) => {
 				</p>
 			</article>
 			{/* <aside className="side">Sidebar</aside> */}
-			<footer className="main-footer">The footer</footer>
+			{/* <footer className="main-footer">The footer</footer> */}
 		</div>
 	);
 };
