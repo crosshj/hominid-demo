@@ -35,7 +35,7 @@
 	height: 100%;
 }
 .mobile-nav li + li {
-	margin-top: 0.25em;
+	margin-top: 0.5em;
 }
 
 /* 0px -> 500px */
