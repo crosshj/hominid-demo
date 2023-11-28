@@ -10,7 +10,7 @@ export const MenuMobile = ({ Menu }) => {
 		<nav className="mobile-nav">
 			<div classname="mobile-nav-header">
 				<div></div>
-				<button onClick={() => setMobileMenu(false)}>hide mobile</button>
+				<button onClick={() => setMobileMenu(false)}>Close</button>
 			</div>
 			{Menu}
 		</nav>
