@@ -8,7 +8,10 @@ export const MenuMobile = ({ Menu }) => {
 	if (!mobileMenuVisible) return null;
 	return (
 		<nav className="mobile-nav">
-			<button onClick={() => setMobileMenu(false)}>hide mobile</button>
+			<div classname="mobile-nav-header">
+				<div></div>
+				<button onClick={() => setMobileMenu(false)}>hide mobile</button>
+			</div>
 			{Menu}
 		</nav>
 	);
