@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import './Menu.css';
+import { MobileMenuContext } from './MenuMobile';
 
 const getMenuItems = ({ items }) => {
 	let menuItems = items;
@@ -16,7 +17,7 @@ const getMenuItems = ({ items }) => {
 	return menuItems;
 };
 
-const MenuItem = ({ item, i, selected, setSelected }) => {
+const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 	const { label, key } = item;
 	const isSelected = selected === key;
 	const className = Object.entries({
@@ -25,6 +26,10 @@ const MenuItem = ({ item, i, selected, setSelected }) => {
 		.filter(([k, v]) => !!v)
 		.map(([k, v]) => k)
 		.join(' ');
+	const onClick = () => {
+		setMobileMenu(false);
+		setSelected(key);
+	};
 	return (
 		<li
 			key={`menu-item-` + i}
@@ -32,7 +37,7 @@ const MenuItem = ({ item, i, selected, setSelected }) => {
 		>
 			<a
 				href={key}
-				onClick={() => setSelected(key)}
+				onClick={onClick}
 			>
 				{label}
 			</a>
@@ -41,9 +46,10 @@ const MenuItem = ({ item, i, selected, setSelected }) => {
 };
 export const Menu = (menuArgs) => {
 	const [selected, setSelected] = useState('/' + document.location.hash);
+	const { setMobileMenu } = useContext(MobileMenuContext);
 	const items = getMenuItems(menuArgs);
 	const MapMenuItem = (item, i) =>
-		MenuItem({ item, i, selected, setSelected });
+		MenuItem({ item, i, selected, setSelected, setMobileMenu });
 	if (!Array.isArray(items)) return null;
 	return <ul>{items.map(MapMenuItem)}</ul>;
 };

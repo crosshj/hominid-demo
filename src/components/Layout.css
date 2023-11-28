@@ -54,7 +54,7 @@ nav {
 @media (min-width: 500px) {
 	.wrapper {
 		grid-template-columns: auto 3fr;
-		grid-template-rows: auto auto 1fr;
+		grid-template-rows: auto 0px 1fr;
 		grid-template-areas:
 			'header  header'
 			'nav     nav'

@@ -29,6 +29,7 @@
 	}
 	.main-nav li + li {
 		margin-top: 0;
+		margin-left: 0.25em;
 	}
 }
 @media (min-width: 700px) {

@@ -5,8 +5,9 @@
 	/>
 
 	<Layout>
-		<Logo width="150px" />
-		<Header></Header>
+		<Header>
+			<Logo width="150px" />
+		</Header>
 		<Menu
 			items="global_menus"
 			route="global_pathData"
