@@ -8,14 +8,14 @@
 .side {
 	background-color: rgb(255, 197, 197);
 }
-.main-footer {
+.main-footer, .mobile-footer {
 	background-color: rgb(226, 255, 192);
 }
 .content {
 	background-color: rgb(255, 196, 255);
 	overflow-y: auto;
 }
-.content article {
+.content article, .main-footer, .mobile-footer {
 	padding: 1em;
 }
 nav {
