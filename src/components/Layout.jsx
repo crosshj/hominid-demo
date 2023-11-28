@@ -143,15 +143,17 @@ export const Layout = (args) => {
 						magnam ut voluptatibus magni sed sint distinctio qui
 						nemo reiciendis!{' '}
 					</p>
+					<footer className="main-footer">footer</footer>
 				</article>
 				{/* <aside className="side">Sidebar</aside> */}
-				<footer className="main-footer">footer</footer>
+				
 			</div>
 			<MenuMobile
 				Menu={Menu}
 				mobileMenuVisible={mobileMenuVisible}
 				setMobileMenu={setMobileMenu}
 			/>
+			<footer className="mobile-footer">mobile-footer</footer>
 		</MobileMenuContext.Provider>
 	);
 };
