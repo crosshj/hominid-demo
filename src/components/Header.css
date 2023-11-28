@@ -1,0 +1,27 @@
+.mobileMenuButton {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: inherit;
+  padding: 0.5em 1em;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 5px;
+}
+.mobileMenuButton:hover {
+  background: #ffffff59;
+}
+/* 0 -> 500px */
+.mobileMenuButton {
+  display: block;  
+}
+/* 500px -> 700px */
+@media (min-width: 500px) {
+  .mobileMenuButton {}
+}
+/* 700px -> infinity */
+@media (min-width: 700px) {
+  .mobileMenuButton {
+    display: none;  
+  }
+}
