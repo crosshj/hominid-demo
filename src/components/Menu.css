@@ -21,22 +21,10 @@
 	width: 100%;
 	height: 100%;
 }
-
-@media (min-width: 500px) {
-	nav ul {
-		display: flex;
-		justify-content: space-between;
-	}
-	.main-nav li + li {
-		margin-top: 0;
-		margin-left: 0.25em;
-	}
+nav ul {
+	display: flex;
+	flex-direction: column;
 }
-@media (min-width: 700px) {
-	.main-nav ul {
-		flex-direction: column;
-	}
-	.main-nav li + li {
-		margin-top: 0.5em;
-	}
+.main-nav li + li {
+	margin-top: 0.5em;
 }
