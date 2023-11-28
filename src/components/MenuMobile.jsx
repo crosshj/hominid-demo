@@ -8,7 +8,7 @@ export const MenuMobile = ({ Menu }) => {
 	if (!mobileMenuVisible) return null;
 	return (
 		<nav className="mobile-nav">
-			<div classname="mobile-nav-header">
+			<div className="mobile-nav-header">
 				<div></div>
 				<button onClick={() => setMobileMenu(false)}>Close</button>
 			</div>
