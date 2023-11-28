@@ -43,13 +43,11 @@ nav {
 .wrapper {
 	display: grid;
 	gap: 0px;
-	grid-template-rows: auto auto 1fr 1fr;
+	grid-template-rows: auto 0px 1fr;
 	grid-template-areas:
 		'header'
 		'nav'
-		'content'
 		'content';
-	/* 'footer'; */
 }
 @media (min-width: 500px) {
 	.wrapper {
@@ -59,17 +57,14 @@ nav {
 			'header  header'
 			'nav     nav'
 			'content content';
-		/* 'footer  footer'; */
 	}
 }
 @media (min-width: 700px) {
 	.wrapper {
-		grid-template-columns: auto 4fr 1fr;
-		grid-template-rows: auto 1fr 1fr;
+		grid-template-columns: auto 5fr;
+		grid-template-rows: auto 1fr;
 		grid-template-areas:
-			'header header  header'
-			'nav    content content'
-			'nav    content content';
-		/* 'footer footer  footer'; */
+			'header header'
+			'nav    content';
 	}
 }
