@@ -9,7 +9,7 @@ export const Header = (headerArgs) => {
 	return (
 		<header className="main-head">
 			{Logo}
-			<button onClick={() => setMobileMenu(true)}>Menu</button>
+			<button className="mobileMenuButton" onClick={() => setMobileMenu(true)}>Menu</button>
 		</header>
 	);
 };
