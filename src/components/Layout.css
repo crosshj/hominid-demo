@@ -2,6 +2,8 @@
 	width: 100vw;
 	height: 100dvh;
 	margin: 0;
+	grid-template-rows: auto 0px max-content;
+	overflow-y: auto;
 }
 .main-head {
 	background-color: rgb(156, 42, 48);
@@ -51,6 +53,7 @@ nav {
 }
 @media (min-width: 500px) {
 	.wrapper {
+		overflow-y: unset;
 		grid-template-columns: auto 3fr;
 		grid-template-rows: auto 0px 1fr;
 		grid-template-areas:
@@ -61,6 +64,7 @@ nav {
 }
 @media (min-width: 700px) {
 	.wrapper {
+		overflow-y: unset;
 		grid-template-columns: auto 5fr;
 		grid-template-rows: auto 1fr;
 		grid-template-areas:
