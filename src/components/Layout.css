@@ -39,34 +39,28 @@ nav {
 	width: 100vw;
 	height: 100dvh;
 	margin: 0;
-	overflow-y: auto;
 }
 
 /* 0 -> 500px */
 .wrapper {
 	display: grid;
 	gap: 0px;
-	grid-template-rows: auto 0px max-content;
+	overflow-y: auto;
+	grid-template-rows: auto 0px max-content auto;
 	grid-template-areas:
 		'header'
 		'nav'
-		'content';
+		'content'
+		'footer';
 }
 /* 500px -> 700px */
 @media (min-width: 500px) {
-	.wrapper {
-		overflow-y: unset;
-		grid-template-columns: auto 3fr;
-		grid-template-rows: auto 0px 1fr;
-		grid-template-areas:
-			'header  header'
-			'nav     nav'
-			'content content';
-	}
+	.wrapper {}
 }
 /* 700px -> infinity */
 @media (min-width: 700px) {
 	.wrapper {
+		overflow-y: unset;
 		grid-template-columns: auto 5fr;
 		grid-template-rows: auto 1fr;
 		grid-template-areas:
