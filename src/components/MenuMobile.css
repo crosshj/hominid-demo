@@ -14,9 +14,6 @@
 .mobile-nav ul {
 	flex-direction: column;
 }
-.mobile-nav {
-	min-width: 10rem;
-}
 .mobile-nav ul {
 	list-style: none;
 	padding-left: 0.5em;
@@ -36,4 +33,22 @@
 	display: inline-block;
 	width: 100%;
 	height: 100%;
+}
+.mobile-nav li + li {
+	margin-top: 0.25em;
+}
+
+/* 0px -> 500px */
+.mobile-nav {
+	display: block;
+}
+/* 500px -> 700px */
+@media (min-width: 500px) {
+	.mobile-nav {}
+}
+/* 700px -> infinity */
+@media (min-width: 700px) {
+	.mobile-nav {
+		display: none;
+	}
 }
