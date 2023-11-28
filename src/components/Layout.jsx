@@ -145,7 +145,7 @@ export const Layout = (args) => {
 					</p>
 				</article>
 				{/* <aside className="side">Sidebar</aside> */}
-				{/* <footer className="main-footer">The footer</footer> */}
+				<footer className="main-footer">footer</footer>
 			</div>
 			<MenuMobile
 				Menu={Menu}
