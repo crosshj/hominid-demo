@@ -52,6 +52,9 @@ nav {
 .main-nav, .main-footer {
 	display: none;
 }
+.main-footer, .mobile-footer {
+	flex: 1;
+}
 .mobile-footer {
 	display: block;
 }
