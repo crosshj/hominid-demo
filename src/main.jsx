@@ -8,16 +8,13 @@ import { theme } from './theme/theme';
 import client from '@awoss/web/client';
 import { App } from '@awoss/web/client';
 import '@awoss/web/client.css';
+
+//TODO: find/write a vite plugin for importing entire directory (because updating/keeping this is annoying)
 import { Container } from './components/Container';
 import { Layout } from './components/Layout';
 import { Menu } from './components/Menu';
 import { Header } from './components/Header';
 import { MenuMobile } from './components/MenuMobile';
-
-console.log({ client });
-
-const container = document.querySelector('#root');
-const root = ReactDOM.createRoot(container);
 const components = {
 	Container,
 	Layout,
@@ -25,6 +22,12 @@ const components = {
 	MenuMobile,
 	Header,
 };
+
+//TODO: 
+console.log({ client });
+
+const container = document.querySelector('#root');
+const root = ReactDOM.createRoot(container);
 const page = {
 	fragment: 'helloWorld',
 	authorized: false,
@@ -34,4 +37,5 @@ if (document.location.pathname !== '/') {
 	page.fragment = 'fooBar';
 	page.title = 'Woops!';
 }
+
 root.render(<App {...{ components, theme, page }} />);

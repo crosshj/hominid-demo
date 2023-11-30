@@ -10,7 +10,6 @@
 		</Header>
 		<Menu
 			items="global_menus"
-			route="global_pathData"
 		/>
 		<Footer></Footer>
 		<Sidebar></Sidebar>
