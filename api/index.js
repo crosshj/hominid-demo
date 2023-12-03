@@ -1,5 +1,6 @@
 const { readFileSync } = require('fs');
 const localServer = require('../server/server');
+const aiHandler = require('./ai/index.js');
 
 const DEFAULT_TOKEN =
 	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImN0IiwiZW1haWwiOiJhdHdvcmtyb2xlK2NoaWxkQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6IkNoaWxkIiwibGFzdE5hbWUiOiJUZW5hbnQiLCJicmFuY2hJZCI6MSwicm9sZUlkIjo1LCJ0ZW5hbnRJZCI6MX0.4cu0yJYvMvzW50aRGwAKEzNK7YqCHBvdF-nZ9CwUxh8';
@@ -11,6 +12,16 @@ const graphqlRequest = async (req, res) => {
 		const accessToken = process.env.TEST_TOKEN || DEFAULT_TOKEN;
 		const token = process.env.TEST_TOKEN || DEFAULT_TOKEN;
 		const { operationName, variables } = req?.body;
+		const {
+			input: [{ args, name }],
+		} = variables;
+
+		if (
+			name !== 'ui.sp_UIContextGetComponentsByUserID' &&
+			args?.key.startsWith('ai')
+		) {
+			return aiHandler(req, res);
+		}
 
 		const newInput = (input) => {
 			if (!input) return input;

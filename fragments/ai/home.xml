@@ -1,0 +1,15 @@
+<Page>
+	<Data
+		name="menus"
+		getData="aiMenu"
+	/>
+
+	<Layout>
+		<Header>
+			<Logo width="150px" />
+		</Header>
+		<Menu items="global_menus" />
+		<Footer></Footer>
+		<Sidebar></Sidebar>
+	</Layout>
+</Page>

@@ -18,7 +18,14 @@ const getMenuItems = ({ items }) => {
 };
 
 const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
-	const { label, key } = item;
+	let props = item;
+	try {
+		const { properties } = item;
+		for (const [k, v] of properties.split(',').map((x) => x.split(':'))) {
+			props[k.trim()] = v.trim();
+		}
+	} catch (e) {}
+	const { label, key, href } = props;
 	const isSelected = selected === key;
 	const className = Object.entries({
 		selected: isSelected,
@@ -36,7 +43,7 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 			className={className}
 		>
 			<a
-				href={key}
+				href={href || key}
 				onClick={onClick}
 			>
 				{label}

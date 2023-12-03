@@ -23,7 +23,7 @@ const components = {
 	Header,
 };
 
-//TODO: 
+//TODO:
 console.log({ client });
 
 const container = document.querySelector('#root');
@@ -36,6 +36,10 @@ const page = {
 if (document.location.pathname !== '/') {
 	page.fragment = 'fooBar';
 	page.title = 'Woops!';
+}
+if (document.location.pathname.startsWith('/ai')) {
+	page.fragment = 'aiHome';
+	page.title = 'Hominid GPT';
 }
 
 root.render(<App {...{ components, theme, page }} />);
