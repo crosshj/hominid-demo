@@ -29,9 +29,9 @@ console.log({ client });
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);
 const page = {
-	fragment: 'helloWorld',
+	fragment: 'fundpawHome',
 	authorized: false,
-	title: 'Hello World',
+	title: 'fundpaw',
 };
 if (document.location.pathname !== '/') {
 	page.fragment = 'fooBar';
