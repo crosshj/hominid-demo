@@ -1,7 +1,7 @@
 console.time('load module');
 //const server = require('../../src/server/server');
 //const server = require('../../dist/server');
-const server = require('@awoss/web/server');
+const server = require('@anthroware_dev/web/server');
 console.timeEnd('load module');
 
 const path = require('path');

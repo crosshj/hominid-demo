@@ -5,9 +5,9 @@ import { theme } from './theme/theme';
 //import { App } from '../../dist/es6/client';
 //import { App } from '../../src/client/client';
 
-import client from '@awoss/web/client';
-import { App } from '@awoss/web/client';
-import '@awoss/web/client.css';
+import client from '@anthroware_dev/web/client';
+import { App } from '@anthroware_dev/web/client';
+import '@anthroware_dev/web/client.css';
 
 //TODO: find/write a vite plugin for importing entire directory (because updating/keeping this is annoying)
 import { Container } from './components/Container';

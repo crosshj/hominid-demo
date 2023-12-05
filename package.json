@@ -7,11 +7,11 @@
         "build": "vite build",
         "preview": "vite preview",
         "watch": "vercel dev --listen 3000",
-        "updateModule": "npm rm @awoss/web && npm run cleanVite && npm i @awoss/web@latest",
+        "updateModule": "npm rm @anthroware_dev/web && npm run cleanVite && npm i @anthroware_dev/web@latest",
         "cleanVite": "rm -rf node_modules/.vite"
     },
     "dependencies": {
-        "@awoss/web": "0.0.0-74",
+        "@anthroware_dev/web": "0.0.0-83",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
