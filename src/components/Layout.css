@@ -9,10 +9,10 @@
 	background-color: rgb(255, 197, 197);
 }
 .main-footer, .mobile-footer {
-	background-color: rgb(226, 255, 192);
+	background-color: #f5d6d8;
 }
 .content {
-	background-color: rgb(255, 196, 255);
+	background-color: #faebec;
 	overflow-y: auto;
 }
 .content article, .main-footer, .mobile-footer {
