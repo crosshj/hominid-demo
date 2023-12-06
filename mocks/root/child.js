@@ -1,6 +1,6 @@
 const menu = [
 	{
-		key: '/#/home',
+		key: '/',
 		label: 'Home',
 		order: '2',
 		properties: 'icon:Home',
