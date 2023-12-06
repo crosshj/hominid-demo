@@ -13,6 +13,7 @@
 		name="fragmentContents"
 		getData="ui.sp_UIContextGetComponentsByUserID"
 		param_fragment="global_helloWorldPathParams.path"
+		debug
 	/>
 	<Data
 		name='mobileMenuOpen'
