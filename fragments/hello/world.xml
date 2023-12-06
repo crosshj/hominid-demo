@@ -17,8 +17,8 @@
 			items="global_menus"
 		/>
 		<Footer>
-			<Fragment contents="global_pathParams.path"/>
-			<!-- <Typography>footer</Typography> -->
+			<!-- <Fragment contents="global_pathParams.path"/> -->
+			<Typography>footer</Typography>
 		</Footer>
 		<Sidebar></Sidebar>
 	</Layout>
