@@ -1,6 +1,7 @@
 const { readFileSync } = require('fs');
 const localServer = require('../server/server');
 const aiHandler = require('./ai/index.js');
+const { lorem } = require('./_utils.js')
 
 const DEFAULT_TOKEN =
 	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImN0IiwiZW1haWwiOiJhdHdvcmtyb2xlK2NoaWxkQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6IkNoaWxkIiwibGFzdE5hbWUiOiJUZW5hbnQiLCJicmFuY2hJZCI6MSwicm9sZUlkIjo1LCJ0ZW5hbnRJZCI6MX0.4cu0yJYvMvzW50aRGwAKEzNK7YqCHBvdF-nZ9CwUxh8';
@@ -13,7 +14,7 @@ const graphqlRequest = async (req, res) => {
 		const token = process.env.TEST_TOKEN || DEFAULT_TOKEN;
 		const { operationName, variables } = req?.body;
 		const {
-			input: [{ args, name }],
+			input: [{ args, name, uuid }],
 		} = variables;
 
 		if (
@@ -33,8 +34,8 @@ const graphqlRequest = async (req, res) => {
 					"Data": [
 						{
 							"cacheExpires": null,
-							"name": "ui.sp_GetData",
-							"uuid": "ad89a541-bdf0-40b0-bfb2-35b1a5ecd077",
+							name,
+							uuid,
 							"results": JSON.stringify([
 								{
 									"key": "Page",
@@ -42,10 +43,18 @@ const graphqlRequest = async (req, res) => {
 								},
 								{
 									"parent": "Page",
-									"key": "Page.Typography",
+									"key": "Page.Typography.0",
 									"type": "Typography",
-									"properties": `textContent:${args.fragment}`
-								}
+									"order": 101,
+									"properties": `textContent:${args.fragment},variant:h3`
+								},
+								{
+									"parent": "Page",
+									"key": "Page.Typography.1",
+									"type": "Typography",
+									"order": 102,
+									"properties": `textContent:${lorem.generateParagraphs(7)}`
+								},
 							])
 						}
 					]

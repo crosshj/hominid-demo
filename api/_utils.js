@@ -1,3 +1,16 @@
+const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+
+const lorem = new LoremIpsum({
+	sentencesPerParagraph: {
+		max: 8,
+		min: 4
+	},
+	wordsPerSentence: {
+		max: 16,
+		min: 4
+	}
+});
+
 const Cookie = (o) =>
 	Object.entries(o).reduce((a, [k, v]) => {
 		if (!a.trim().length) return `${k}=${v}`;
@@ -31,6 +44,7 @@ const atob = (base64) => {
 module.exports = {
 	Cookie,
 	ParamString,
+	lorem,
 	match,
 	base64: { encode: btoa, decode: atob },
 };
