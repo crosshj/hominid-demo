@@ -88,4 +88,8 @@ nav {
 			'header header'
 			'nav    content';
 	}
+	.content {
+		display: grid;
+		grid-template: 1fr auto / 1fr;
+	}
 }
