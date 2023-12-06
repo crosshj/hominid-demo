@@ -18,7 +18,7 @@
 		/>
 		<Footer>
 			<Fragment contents="global_helloWorldPathParams.path"/>
-			<!-- <Typography>footer</Typography> -->
+			<Typography>footer</Typography>
 		</Footer>
 		<Sidebar></Sidebar>
 	</Layout>
