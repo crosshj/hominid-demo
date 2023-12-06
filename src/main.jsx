@@ -15,18 +15,18 @@ import { Layout } from './components/Layout';
 import { Menu } from './components/Menu';
 import { Header } from './components/Header';
 import { MenuMobile } from './components/MenuMobile';
-import { Footer } from './components/Footer';
+import { Content } from './components/Content';
 const components = {
 	Container,
 	Layout,
 	Menu,
 	MenuMobile,
 	Header,
-	Footer,
+	Content,
 };
 
 //TODO:
-console.log({ client });
+//console.log({ client });
 
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);

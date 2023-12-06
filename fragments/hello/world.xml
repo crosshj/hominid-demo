@@ -1,5 +1,10 @@
 <Page>
 	<Data
+		name='helloWorldPathParams'
+		route='/#/:path?'
+		debug
+	/>
+	<Data
 		name="helloWorldMenus"
 		getData="rootChild"
 	/>
@@ -9,9 +14,16 @@
 		param_fragment="global_helloWorldPathParams.path"
 	/>
 	<Data
-		name='helloWorldPathParams'
-		route='/#/:path?'
+		name='mobileMenuOpen'
+		defaultValue="false"
 	/>
+
+	<Flow key='openMobileMenu'>
+		<SetData name='global_mobileMenuOpen' data='true' />
+	</Flow>
+	<Flow key='closeMobileMenu'>
+		<SetData name='global_mobileMenuOpen' data='false' />
+	</Flow>
 
 	<Layout>
 		<Header>
@@ -19,9 +31,14 @@
 		</Header>
 		<Menu
 			items="global_helloWorldMenus"
+			selectMenuFn="runFlow_selectMenu"
+			openMobileMenuFn="runFlow_openMobileMenu"
+			closeMobileMenuFn="runFlow_closeMobileMenu"
 		/>
-		<Footer>
+		<Content>
 			<Fragment contents="global_fragmentContents"/>
+		</Content>
+		<Footer>
 			<Typography>footer</Typography>
 		</Footer>
 		<Sidebar></Sidebar>
