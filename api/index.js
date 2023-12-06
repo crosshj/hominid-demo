@@ -23,6 +23,26 @@ const graphqlRequest = async (req, res) => {
 			return aiHandler(req, res);
 		}
 
+		if (
+			name === 'ui.sp_UIContextGetComponentsByUserID' &&
+			args?.fragment
+		) {
+			const defaultRes = {
+				"data": {
+					"Data": [
+						{
+							"cacheExpires": null,
+							"name": "ui.sp_GetData",
+							"uuid": "ad89a541-bdf0-40b0-bfb2-35b1a5ecd077",
+							"results": `[{\"parent\":\"\",\"key\":\"Page\",\"label\":\"\",\"type\":\"Page\",\"target\":\"\",\"default\":\"\",\"value\":\"\",\"order\":1,\"properties\":\"\"},{\"parent\":\"Page\",\"key\":\"Page.Typography\",\"label\":\"\",\"type\":\"Typography\",\"target\":\"\",\"default\":\"\",\"value\":\"\",\"order\":101,\"properties\":\"textContent:${args?.fragment}\"}]`
+						}
+					]
+				}
+			};
+			res.statusCode = 200;
+			return res.json(defaultRes);
+		}
+
 		const newInput = (input) => {
 			if (!input) return input;
 			const { args = '', ...i } = input;
