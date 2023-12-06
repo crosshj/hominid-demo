@@ -17,8 +17,8 @@
 			items="global_helloWorldMenus"
 		/>
 		<Footer>
-			<!-- <Fragment contents="global_helloWorldPathParams.path"/> -->
-			<Typography>footer</Typography>
+			<Fragment contents="global_helloWorldPathParams.path"/>
+			<!-- <Typography>footer</Typography> -->
 		</Footer>
 		<Sidebar></Sidebar>
 	</Layout>
