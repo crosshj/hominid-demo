@@ -1,10 +1,10 @@
 <Page>
 	<Data
-		name="menus"
+		name="helloWorldMenus"
 		getData="rootChild"
 	/>
 	<Data
-		name='pathParams'
+		name='helloWorldPathParams'
 		route='/#/:path?'
 		debug
 	/>
@@ -14,10 +14,10 @@
 			<Logo width="150px" />
 		</Header>
 		<Menu
-			items="global_menus"
+			items="global_helloWorldMenus"
 		/>
 		<Footer>
-			<!-- <Fragment contents="global_pathParams.path"/> -->
+			<!-- <Fragment contents="global_helloWorldPathParams.path"/> -->
 			<Typography>footer</Typography>
 		</Footer>
 		<Sidebar></Sidebar>
