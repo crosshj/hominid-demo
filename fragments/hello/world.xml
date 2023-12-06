@@ -4,9 +4,13 @@
 		getData="rootChild"
 	/>
 	<Data
+		name="fragmentContents"
+		getData="ui.sp_UIContextGetComponentsByUserID"
+		param_fragment="global_helloWorldPathParams.path"
+	/>
+	<Data
 		name='helloWorldPathParams'
 		route='/#/:path?'
-		debug
 	/>
 
 	<Layout>
@@ -17,7 +21,7 @@
 			items="global_helloWorldMenus"
 		/>
 		<Footer>
-			<Fragment contents="global_helloWorldPathParams.path"/>
+			<Fragment contents="global_fragmentContents"/>
 			<Typography>footer</Typography>
 		</Footer>
 		<Sidebar></Sidebar>
