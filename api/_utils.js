@@ -1,7 +1,7 @@
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
 const lorem = new LoremIpsum({
-	format: "html",
+	format: "plain",
 	sentencesPerParagraph: {
 		max: 8,
 		min: 4
