@@ -24,7 +24,8 @@ const graphqlRequest = async (req, res) => {
 		}
 
 		if (
-			name === 'ui.sp_UIContextGetComponentsByUserID' &&
+			name === 'ui.sp_GetData' &&
+			args?.key === "ui.sp_UIContextGetComponentsByUserID" &&
 			args?.fragment
 		) {
 			const defaultRes = {
@@ -34,7 +35,30 @@ const graphqlRequest = async (req, res) => {
 							"cacheExpires": null,
 							"name": "ui.sp_GetData",
 							"uuid": "ad89a541-bdf0-40b0-bfb2-35b1a5ecd077",
-							"results": `[{\"parent\":\"\",\"key\":\"Page\",\"label\":\"\",\"type\":\"Page\",\"target\":\"\",\"default\":\"\",\"value\":\"\",\"order\":1,\"properties\":\"\"},{\"parent\":\"Page\",\"key\":\"Page.Typography\",\"label\":\"\",\"type\":\"Typography\",\"target\":\"\",\"default\":\"\",\"value\":\"\",\"order\":101,\"properties\":\"textContent:${args?.fragment}\"}]`
+							"results": JSON.stringify([
+								{
+									"parent": "",
+									"key": "Page",
+									"label": "",
+									"type": "Page",
+									"target": "",
+									"default": "",
+									"value": "",
+									"order": 1,
+									"properties": ""
+								},
+								{
+									"parent": "Page",
+									"key": "Page.Typography",
+									"label": "",
+									"type": "Typography",
+									"target": "",
+									"default": "",
+									"value": "",
+									"order": 101,
+									"properties": `textContent:${args.fragment}`
+								}
+							])
 						}
 					]
 				}
