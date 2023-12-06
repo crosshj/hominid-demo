@@ -11,7 +11,7 @@
         "cleanVite": "rm -rf node_modules/.vite"
     },
     "dependencies": {
-        "@anthroware_dev/web": "0.0.0-84",
+        "@anthroware_dev/web": "0.0.0-83",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
