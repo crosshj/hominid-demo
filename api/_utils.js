@@ -3,12 +3,12 @@ const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 const lorem = new LoremIpsum({
 	format: "plain",
 	sentencesPerParagraph: {
-		max: 8,
+		max: 10,
 		min: 4
 	},
 	wordsPerSentence: {
-		max: 16,
-		min: 4
+		max: 25,
+		min: 10
 	},
 	suffix: "\n\n",
 });

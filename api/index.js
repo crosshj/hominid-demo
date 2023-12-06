@@ -29,7 +29,7 @@ const graphqlRequest = async (req, res) => {
 			args?.key === "ui.sp_UIContextGetComponentsByUserID" &&
 			args?.fragment
 		) {
-			const paragraphs = lorem.generateParagraphs(15).split('\n');
+			const paragraphs = lorem.generateParagraphs(12).split('\n');
 			const defaultRes = {
 				"data": {
 					"Data": [
@@ -47,14 +47,14 @@ const graphqlRequest = async (req, res) => {
 									"key": "Page.Typography.0",
 									"type": "Typography",
 									"order": 101,
-									"properties": `textContent:${args.fragment},variant:h3,my:1rem`
+									"properties": `textContent:${args.fragment},variant:h1,my:1rem`
 								},
 								...paragraphs.map((x,i) => ({
 									"parent": "Page",
 									"key": "Page.Typography."+(i+1),
 									"type": "Typography",
 									"order": 101 + i,
-									"properties": `textContent:${x.trim()}`
+									"properties": `textContent:${x.trim()},marginBottom:1rem`
 								}))
 							])
 						}
