@@ -1,6 +1,7 @@
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
 const lorem = new LoremIpsum({
+	format: "html",
 	sentencesPerParagraph: {
 		max: 8,
 		min: 4
@@ -8,7 +9,8 @@ const lorem = new LoremIpsum({
 	wordsPerSentence: {
 		max: 16,
 		min: 4
-	}
+	},
+	suffix: "\n\n",
 });
 
 const Cookie = (o) =>

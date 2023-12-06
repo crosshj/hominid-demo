@@ -43,15 +43,15 @@ const graphqlRequest = async (req, res) => {
 								},
 								{
 									"parent": "Page",
-									"key": "Page.Typography.0",
+									"key": "Page.Typography",
 									"type": "Typography",
 									"order": 101,
 									"properties": `textContent:${args.fragment},variant:h3`
 								},
 								{
 									"parent": "Page",
-									"key": "Page.Typography.1",
-									"type": "Typography",
+									"key": "Page.Markdown",
+									"type": "Markdown",
 									"order": 102,
 									"properties": `textContent:${lorem.generateParagraphs(7)}`
 								},
