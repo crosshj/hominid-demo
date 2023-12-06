@@ -3,7 +3,6 @@
 		name='helloWorldPathParams'
 		route='/#/:path?'
 		defaultValue='{ "path": "home" }'
-		debug
 	/>
 	<Data
 		name="helloWorldMenus"
@@ -13,7 +12,6 @@
 		name="fragmentContents"
 		getData="ui.sp_UIContextGetComponentsByUserID"
 		param_fragment="global_helloWorldPathParams.path"
-		debug
 	/>
 	<Data
 		name='mobileMenuOpen'
