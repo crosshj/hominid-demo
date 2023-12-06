@@ -29,7 +29,7 @@ const graphqlRequest = async (req, res) => {
 			args?.key === "ui.sp_UIContextGetComponentsByUserID" &&
 			args?.fragment
 		) {
-			const paragraphs = lorem.generateParagraphs(7).split('\n');
+			const paragraphs = lorem.generateParagraphs(15).split('\n');
 			const defaultRes = {
 				"data": {
 					"Data": [
