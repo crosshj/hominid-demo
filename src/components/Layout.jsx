@@ -15,6 +15,7 @@ export const Layout = (args) => {
 	const childItems = children[1].filter((x) => x.props.type !== 'Logo');
 	const Menu = children[1].find((x) => x.props.type === 'Menu');
 	const Header = children[1].find((x) => x.props.type === 'Header');
+	const Footer = children[1].find((x) => x.props.type === 'Footer');
 
 	return (
 		<MobileMenuContext.Provider
@@ -145,7 +146,7 @@ export const Layout = (args) => {
 							nemo reiciendis!{' '}
 						</p>
 					</article>
-					<footer className="main-footer">footer</footer>
+					<footer className="main-footer">{ Footer }</footer>
 				</div>	
 				{/* <aside className="side">Sidebar</aside> */}
 				<footer className="mobile-footer">mobile-footer</footer>				

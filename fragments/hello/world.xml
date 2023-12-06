@@ -3,6 +3,11 @@
 		name="menus"
 		getData="rootChild"
 	/>
+	<Data
+		name='pathParams'
+		route='/#/:path?'
+		debug
+	/>
 
 	<Layout>
 		<Header>
@@ -11,7 +16,9 @@
 		<Menu
 			items="global_menus"
 		/>
-		<Footer></Footer>
+		<Footer>
+			<Fragment contents="global_pathParams.path"/>
+		</Footer>
 		<Sidebar></Sidebar>
 	</Layout>
 </Page>

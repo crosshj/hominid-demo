@@ -15,12 +15,14 @@ import { Layout } from './components/Layout';
 import { Menu } from './components/Menu';
 import { Header } from './components/Header';
 import { MenuMobile } from './components/MenuMobile';
+import { Footer } from './components/Footer';
 const components = {
 	Container,
 	Layout,
 	Menu,
 	MenuMobile,
 	Header,
+	Footer,
 };
 
 //TODO:
