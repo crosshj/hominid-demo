@@ -17,7 +17,7 @@ const getMenuItems = ({ items }) => {
 	return menuItems;
 };
 
-const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
+const MenuItem = ({ item, i, selected, onItemClick }) => {
 	let props = item;
 	try {
 		const { properties } = item;
@@ -33,11 +33,7 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 		.filter(([k, v]) => !!v)
 		.map(([k, v]) => k)
 		.join(' ');
-	const onClick = () => {
-		console.log('menu item click')
-		setMobileMenu(false);
-		setSelected(href);
-	};
+
 	return (
 		<li
 			key={`menu-item-` + i}
@@ -45,7 +41,7 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 		>
 			<a
 				href={href || key}
-				onClick={onClick}
+				onClick={(e) => onItemClick(e, {href})}
 			>
 				{label}
 			</a>
@@ -55,9 +51,14 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 export const Menu = (menuArgs) => {
 	const [selected, setSelected] = useState(document.location.hash);
 	const { setMobileMenu } = useContext(MobileMenuContext);
+	const onItemClick = (e, { href }) => {
+		console.log('menu item click: href')
+		setMobileMenu(false);
+		setSelected(href);
+	};
 	const items = getMenuItems(menuArgs);
 	const MapMenuItem = (item, i) =>
-		MenuItem({ item, i, selected, setSelected, setMobileMenu });
+		MenuItem({ item, i, selected, onItemClick });
 	if (!Array.isArray(items)) return null;
 	return <ul>{items.map(MapMenuItem)}</ul>;
 };
