@@ -10,6 +10,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Realizing_commo
 */
 
 export const Layout = (args) => {
+	const [selected, setSelected] = useState(document.location.hash);
 	const [mobileMenuVisible, setMobileMenu] = useState(false);
 	const { slug, title, children } = args;
 	const childItems = children[1].filter((x) => x.props.type !== 'Logo');
@@ -20,6 +21,8 @@ export const Layout = (args) => {
 	return (
 		<MobileMenuContext.Provider
 			value={{
+				selected,
+				setSelected,
 				mobileMenuVisible,
 				setMobileMenu,
 			}}

@@ -49,12 +49,11 @@ const MenuItem = ({ item, i, selected, onItemClick }) => {
 	);
 };
 export const Menu = (menuArgs) => {
-	const [selected, setSelected] = useState(document.location.hash);
-	const { setMobileMenu } = useContext(MobileMenuContext);
+	const { setMobileMenu, selected, setSelected } = useContext(MobileMenuContext);
 	const onItemClick = (e, { href }) => {
 		console.log(`menu item click: ${href}`)
-		setMobileMenu(false);
 		setSelected(href);
+		setMobileMenu(false);
 	};
 	const items = getMenuItems(menuArgs);
 	if (!Array.isArray(items)) return null;
