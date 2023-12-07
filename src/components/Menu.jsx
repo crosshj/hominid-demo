@@ -57,9 +57,11 @@ export const Menu = (menuArgs) => {
 		setSelected(href);
 	};
 	const items = getMenuItems(menuArgs);
-	const selectedOrDefault = selected || items[0].href;
+	if (!Array.isArray(items)) return null;
+	const selectedOrDefault = selected && items.find(x => x?.href === selected)
+		? selected
+		: items[0]?.href;
 	const MapMenuItem = (item, i) =>
 		MenuItem({ item, i, selected: selectedOrDefault, onItemClick });
-	if (!Array.isArray(items)) return null;
 	return <ul>{items.map(MapMenuItem)}</ul>;
 };
