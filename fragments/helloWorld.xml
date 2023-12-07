@@ -3,7 +3,6 @@
 		name='helloWorldPathParams'
 		route='/#/:path?'
 		defaultValue='{ "path": "home" }'
-		debug
 	/>
 	<Data
 		name="helloWorldMenus"
