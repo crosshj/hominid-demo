@@ -26,7 +26,7 @@ const MenuItem = ({ item, i, selected, onItemClick }) => {
 		}
 	} catch (e) {}
 	const { label, key, href } = props;
-	const isSelected = selected === key || selected === href;
+	const isSelected = selected === href;
 	const className = Object.entries({
 		selected: isSelected,
 	})
@@ -57,8 +57,9 @@ export const Menu = (menuArgs) => {
 		setSelected(href);
 	};
 	const items = getMenuItems(menuArgs);
+	const selectedOrDefault = selected || items[0].href;
 	const MapMenuItem = (item, i) =>
-		MenuItem({ item, i, selected, onItemClick });
+		MenuItem({ item, i, selected: selectedOrDefault, onItemClick });
 	if (!Array.isArray(items)) return null;
 	return <ul>{items.map(MapMenuItem)}</ul>;
 };
