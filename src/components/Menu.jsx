@@ -34,6 +34,7 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 		.map(([k, v]) => k)
 		.join(' ');
 	const onClick = () => {
+		console.log('menu item click')
 		setMobileMenu(false);
 		setSelected(href);
 	};
