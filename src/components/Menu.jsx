@@ -26,7 +26,7 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 		}
 	} catch (e) {}
 	const { label, key, href } = props;
-	const isSelected = selected === key;
+	const isSelected = selected === key || selected === href;
 	const className = Object.entries({
 		selected: isSelected,
 	})
@@ -35,7 +35,7 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 		.join(' ');
 	const onClick = () => {
 		setMobileMenu(false);
-		setSelected(key);
+		setSelected(href);
 	};
 	return (
 		<li
@@ -52,7 +52,7 @@ const MenuItem = ({ item, i, selected, setSelected, setMobileMenu }) => {
 	);
 };
 export const Menu = (menuArgs) => {
-	const [selected, setSelected] = useState('/' + document.location.hash);
+	const [selected, setSelected] = useState(document.location.hash);
 	const { setMobileMenu } = useContext(MobileMenuContext);
 	const items = getMenuItems(menuArgs);
 	const MapMenuItem = (item, i) =>
