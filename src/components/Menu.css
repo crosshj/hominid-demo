@@ -1,10 +1,10 @@
 .main-nav {
-	min-width: 10rem;
+	min-width: 11.5rem;
 }
 .main-nav ul {
 	list-style: none;
-	padding-left: 0.5em;
-	padding-right: 1em;
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
 }
 .main-nav li {
 	padding: 0.5em 1em;
