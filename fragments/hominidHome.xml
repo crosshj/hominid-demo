@@ -1,18 +1,17 @@
 <Page>
 	<Data
-		name='helloWorldPathParams'
+		name='pathParams'
 		route='/#/:path?'
 		defaultValue='{ "path": "home" }'
-		debug
 	/>
 	<Data
-		name="helloWorldMenus"
+		name="menus"
 		getData="rootChild"
 	/>
 	<Data
 		name="fragmentContents"
 		getData="ui.sp_UIContextGetComponentsByUserID"
-		param_fragment="global_helloWorldPathParams.path"
+		param_fragment="global_pathParams.path"
 	/>
 	<Data
 		name='mobileMenuOpen'
@@ -26,12 +25,14 @@
 		<SetData name='global_mobileMenuOpen' data='false' />
 	</Flow>
 
-	<Layout>
+	<Layout
+		path="global_pathParams.path"
+	>
 		<Header>
 			<Logo width="150px" />
 		</Header>
 		<Menu
-			items="global_helloWorldMenus"
+			items="global_menus"
 			selectMenuFn="runFlow_selectMenu"
 			openMobileMenuFn="runFlow_openMobileMenu"
 			closeMobileMenuFn="runFlow_closeMobileMenu"
@@ -42,6 +43,6 @@
 		<Footer>
 			<Typography>footer</Typography>
 		</Footer>
-		<Sidebar></Sidebar>
+		<!-- <Sidebar></Sidebar> -->
 	</Layout>
 </Page>

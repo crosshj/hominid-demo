@@ -1,13 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { theme } from './theme/theme';
-
-//import { App } from '../../dist/es6/client';
-//import { App } from '../../src/client/client';
-
-import client from '@anthroware_dev/web/client';
 import { App } from '@anthroware_dev/web/client';
 import '@anthroware_dev/web/client.css';
+
+import { theme } from './theme/theme';
 
 //TODO: find/write a vite plugin for importing entire directory (because updating/keeping this is annoying)
 import { Container } from './components/Container';
@@ -25,15 +21,12 @@ const components = {
 	Content,
 };
 
-//TODO:
-//console.log({ client });
-
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);
 const page = {
-	fragment: 'helloWorld',
+	fragment: 'hominidHome',
 	authorized: false,
-	title: 'Hello World',
+	title: 'hominid',
 };
 if (document.location.pathname !== '/') {
 	page.fragment = 'fooBar';
@@ -41,7 +34,7 @@ if (document.location.pathname !== '/') {
 }
 if (document.location.pathname.startsWith('/ai')) {
 	page.fragment = 'aiHome';
-	page.title = 'Hominid GPT';
+	page.title = 'hominid GPT';
 }
 
 root.render(<App {...{ components, theme, page }} />);

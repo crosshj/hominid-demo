@@ -9,14 +9,18 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Realizing_commo
 
 */
 
-export const Layout = (args) => {
+export const Layout = (LayoutArgs) => {
 	const [selected, setSelected] = useState(document.location.hash);
 	const [mobileMenuVisible, setMobileMenu] = useState(false);
-	const { slug, title, children } = args;
-	const childItems = children[1].filter((x) => x.props.type !== 'Logo');
+	//^^^ should not need this, leverage framework
+
+	const { children, ...LayoutRest } = LayoutArgs;
+	//const childItems = children[1].filter((x) => x.props.type !== 'Logo');
 	const Menu = children[1].find((x) => x.props.type === 'Menu');
 	const Header = children[1].find((x) => x.props.type === 'Header');
 	const Content = children[1].find((x) => x.props.type === 'Content');
+ 
+	console.log({ LayoutRest, Menu, Header, Content })
 
 	return (
 		<MobileMenuContext.Provider
@@ -39,11 +43,13 @@ export const Layout = (args) => {
 				{/* <aside className="side">Sidebar</aside> */}
 				<footer className="mobile-footer">mobile-footer</footer>
 			</div>
-			<MenuMobile
-				Menu={Menu}
-				mobileMenuVisible={mobileMenuVisible}
-				setMobileMenu={setMobileMenu}
-			/>
+			{ mobileMenuVisible && 
+				<MenuMobile
+					Menu={Menu}
+					mobileMenuVisible={mobileMenuVisible}
+					setMobileMenu={setMobileMenu}
+				/>
+			}
 		</MobileMenuContext.Provider>
 	);
 };
