@@ -16,8 +16,8 @@ export const lightMode = {
 	background: { default: '#FAFAFA', paper: '#FFF', contrast: '#FFF' },
 	splash: {
 		bg: {
-			dark: '#ff0000',
-			light: '#e74c3c',
+			dark: '#050425',
+			light: '#1c0938',
 		}
 	},
 	text: {
