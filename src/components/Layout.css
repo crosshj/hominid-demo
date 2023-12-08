@@ -11,9 +11,9 @@
 	display: flex;
 	justify-content: space-between;
 }
-.side {
+/* .side {
 	background-color: rgb(255, 197, 197);
-}
+} */
 .main-footer, .mobile-footer {
 	background-color: var(--background-medium);
 }
@@ -25,7 +25,8 @@
 	padding: 1em;
 }
 nav {
-	background-color: var(--background-heavy);
+	background-color: var(--background-main);
+	background: linear-gradient(180deg, var(--background-main) 0%, var(--background-heavy) 70%);
 	color: white;
 }
 
