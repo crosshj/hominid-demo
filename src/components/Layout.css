@@ -1,25 +1,31 @@
+:root {
+	--background-main: #220e4d;
+	--background-heavy: #290634;
+	--background-medium: #ddd6f5;
+	--background-lightest: #f6f5fb;
+}
 .main-head {
-	background-color: rgb(156, 42, 48);
+	background-color: var(--background-main);
 	padding-left: 1em;
 	padding-right: 1em;
 	display: flex;
-    	justify-content: space-between;
+	justify-content: space-between;
 }
 .side {
 	background-color: rgb(255, 197, 197);
 }
 .main-footer, .mobile-footer {
-	background-color: #f5d6d8;
+	background-color: var(--background-medium);
 }
 .content {
-	background-color: #faebec;
+	background-color: var(--background-lightest);
 	overflow-y: auto;
 }
 .content article, .main-footer, .mobile-footer {
 	padding: 1em;
 }
 nav {
-	background-color: rgb(156, 42, 48);
+	background-color: var(--background-heavy);
 	color: white;
 }
 
