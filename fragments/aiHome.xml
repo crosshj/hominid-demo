@@ -31,15 +31,16 @@
 		/>
 	</Flow>
 
-	<Layout path="global_pathParams.path">
-		<Header>
+	<Layout
+		mobileMenuOpen="global_mobileMenuOpen"
+		closeMobileMenuFn="runFlow_closeMobileMenu"
+	>
+		<Header openMobileMenuFn="runFlow_openMobileMenu">
 			<Logo width="150px" />
 		</Header>
 		<Menu
 			items="global_menus"
 			selected="global_pathParams.path"
-			selectMenuFn="runFlow_selectMenu"
-			openMobileMenuFn="runFlow_openMobileMenu"
 			closeMobileMenuFn="runFlow_closeMobileMenu"
 		/>
 		<Content>
