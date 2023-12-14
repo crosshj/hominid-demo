@@ -1,16 +1,17 @@
-import { createContext, useContext } from 'react';
 import './MenuMobile.css';
 
-export const MobileMenuContext = createContext({});
-
-export const MenuMobile = ({ Menu }) => {
-	const { setMobileMenu, mobileMenuVisible } = useContext(MobileMenuContext);
-	if (!mobileMenuVisible) return null;
+export const MenuMobile = ({ Menu, closeMobileMenuFn, mobileMenuOpen }) => {
+	if (!mobileMenuOpen) return null;
 	return (
 		<nav className="mobile-nav">
 			<div className="mobile-nav-header">
 				<div></div>
-				<button className="mobileMenuButton" onClick={() => setMobileMenu(false)}>Close</button>
+				<button
+					className="mobileMenuButton"
+					onClick={closeMobileMenuFn}
+				>
+					Close
+				</button>
 			</div>
 			{Menu}
 		</nav>

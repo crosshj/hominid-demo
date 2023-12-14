@@ -1,12 +1,12 @@
 <Page>
 	<Data
-		name='pathParams'
-		route='/#/:path?'
+		name="pathParams"
+		route="/#/:path?"
 		defaultValue='{ "path": "home" }'
 	/>
 	<Data
 		name="menus"
-		getData="rootChild"
+		getData="hominidMenus"
 	/>
 	<Data
 		name="fragmentContents"
@@ -14,31 +14,37 @@
 		param_fragment="global_pathParams.path"
 	/>
 	<Data
-		name='mobileMenuOpen'
+		name="mobileMenuOpen"
 		defaultValue="false"
 	/>
 
-	<Flow key='openMobileMenu'>
-		<SetData name='global_mobileMenuOpen' data='true' />
+	<Flow key="openMobileMenu">
+		<SetData
+			name="global_mobileMenuOpen"
+			data="true"
+		/>
 	</Flow>
-	<Flow key='closeMobileMenu'>
-		<SetData name='global_mobileMenuOpen' data='false' />
+	<Flow key="closeMobileMenu">
+		<SetData
+			name="global_mobileMenuOpen"
+			data="false"
+		/>
 	</Flow>
 
 	<Layout
-		path="global_pathParams.path"
+		mobileMenuOpen="global_mobileMenuOpen"
+		closeMobileMenuFn="runFlow_closeMobileMenu"
 	>
-		<Header>
+		<Header openMobileMenuFn="runFlow_openMobileMenu">
 			<Logo width="150px" />
 		</Header>
 		<Menu
 			items="global_menus"
-			selectMenuFn="runFlow_selectMenu"
-			openMobileMenuFn="runFlow_openMobileMenu"
+			selected="global_pathParams.path"
 			closeMobileMenuFn="runFlow_closeMobileMenu"
 		/>
 		<Content>
-			<Fragment contents="global_fragmentContents"/>
+			<Fragment contents="global_fragmentContents" />
 		</Content>
 		<Footer>
 			<Typography>footer</Typography>

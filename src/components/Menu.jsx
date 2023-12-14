@@ -1,6 +1,4 @@
-import { useState, useContext } from 'react';
 import './Menu.css';
-import { MobileMenuContext } from './MenuMobile';
 
 const getMenuItems = ({ items }) => {
 	let menuItems = items;
@@ -41,7 +39,7 @@ const MenuItem = ({ item, i, selected, onItemClick }) => {
 		>
 			<a
 				href={href || key}
-				onClick={(e) => onItemClick(e, {href})}
+				onClick={(e) => onItemClick(e, { href })}
 			>
 				{label}
 			</a>
@@ -49,17 +47,18 @@ const MenuItem = ({ item, i, selected, onItemClick }) => {
 	);
 };
 export const Menu = (menuArgs) => {
-	const { setMobileMenu, selected, setSelected } = useContext(MobileMenuContext);
-	const onItemClick = (e, { href }) => {
-		console.log(`menu item click: ${href}`)
-		setSelected(href);
-		setMobileMenu(false);
-	};
+	const { selected, closeMobileMenuFn: onItemClick } = menuArgs;
+
 	const items = getMenuItems(menuArgs);
 	if (!Array.isArray(items)) return null;
-	const selectedOrDefault = selected && items.find(x => x?.href === selected)
-		? selected
-		: items[0]?.href;
+
+	let selectedOrDefault;
+	if (selected) {
+		selectedOrDefault = '#/' + selected;
+	} else {
+		selectedOrDefault = items[0]?.href;
+	}
+
 	const MapMenuItem = (item, i) =>
 		MenuItem({ item, i, selected: selectedOrDefault, onItemClick });
 	return <ul>{items.map(MapMenuItem)}</ul>;

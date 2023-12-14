@@ -1,15 +1,53 @@
 <Page>
 	<Data
+		name="pathParams"
+		route="/ai/#/:path?"
+		defaultValue='{ "path": "home" }'
+	/>
+	<Data
 		name="menus"
 		getData="aiMenu"
 	/>
+	<Data
+		name="fragmentContents"
+		getData="ui.sp_UIContextGetComponentsByUserID"
+		param_fragment="global_pathParams.path"
+	/>
+	<Data
+		name="mobileMenuOpen"
+		defaultValue="false"
+	/>
 
-	<Layout>
+	<Flow key="openMobileMenu">
+		<SetData
+			name="global_mobileMenuOpen"
+			data="true"
+		/>
+	</Flow>
+	<Flow key="closeMobileMenu">
+		<SetData
+			name="global_mobileMenuOpen"
+			data="false"
+		/>
+	</Flow>
+
+	<Layout path="global_pathParams.path">
 		<Header>
 			<Logo width="150px" />
 		</Header>
-		<Menu items="global_menus" />
-		<Footer></Footer>
-		<Sidebar></Sidebar>
+		<Menu
+			items="global_menus"
+			selected="global_pathParams.path"
+			selectMenuFn="runFlow_selectMenu"
+			openMobileMenuFn="runFlow_openMobileMenu"
+			closeMobileMenuFn="runFlow_closeMobileMenu"
+		/>
+		<Content>
+			<Fragment contents="global_fragmentContents" />
+		</Content>
+		<Footer>
+			<Typography>footer</Typography>
+		</Footer>
+		<!-- <Sidebar></Sidebar> -->
 	</Layout>
 </Page>

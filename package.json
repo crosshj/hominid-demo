@@ -6,12 +6,12 @@
         "dev": "vite --port $PORT",
         "build": "vite build",
         "preview": "vite preview",
-        "watch": "vercel dev --listen 3000",
+        "watch": "vercel dev --listen=3000 --local-config=vercel.local.json",
         "updateModule": "npm rm @anthroware_dev/web && npm run cleanVite && npm i @anthroware_dev/web@latest",
         "cleanVite": "rm -rf node_modules/.vite"
     },
     "dependencies": {
-        "@anthroware_dev/web": "0.0.0-91",
+        "@anthroware_dev/web": "0.0.0-97",
         "lorem-ipsum": "2.0.8",
         "react": "18.2.0",
         "react-dom": "18.2.0"

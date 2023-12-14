@@ -6,9 +6,20 @@ export const user = (body) => {
     The application: offers books of all types and genres.
     The user: is not really sure what they want and would like to see a wide variety of books to purchase.
 
-    Please provide the JSON for the child elements of ${fragmentName}.`.trim();
+    Please provide the JSON for the child elements of a ${fragmentName} element.`.trim();
 	return userPrompt;
 };
+
+const menus = () =>
+	`
+When a Menu is requested, obey these following rules:
+MENU RULE 1): the first element should always be for "home" with an href of "#/home"
+MENU RULE 2): always include an href attribute which is camel-cased and closely matches the element label
+MENU RULE 3): ALWAYS preface href's with "#/"
+MENU RULE 4): provide the child elements in an order that makes sense for site navigation
+MENU RULE 5): do not nest menu elements
+
+`.trim();
 
 export const system = () =>
 	`
@@ -20,14 +31,16 @@ Then create a flattened JSON representation of the HTML structure in a format wh
 1) always return a list of components as a JSON array
 2) OPTIONAL: each component, or object in the list, will have the following properties:
     - label: this is a human-readable text, menu items should ALWAYS have a label which matches the section name which the menu item triggers
-3) each component, or object in the list, has the following properties:
+3) each component, or object in the list, has only the following properties:
     - key: this is a period-separated unique identifier. eg Page.Child1.Granchild3, or Page.
-    - properties: do not include spaces, this is a comma-separated list of attribute:value pairs (use a colon between these and do not include spaces) which functions similar to attributes on an HTML element
+    - properties: all other attributes here, do not include spaces, this is a comma-separated list of attribute:value pairs (use a colon between these and do not include spaces) which functions similar to attributes on an HTML element
 
-NOTE: if you include "href" in properties, always make the "href" a relative link, ie. include './' in front of the href
+NOTE: if you include "href" in properties, always make the "href" a relative link, ie. include '#/' in front of the href
 NOTE: if you are building a menu for the user, please include at least 10 items, but please include as many more as needed to cover the site purpose.
 
 To ensure your responses are correct, first construct the HTML fragment you would return for the request then flatten the HTML into a list as described above.
+
+${menus()}
 
 Your response should look something like this:
 {

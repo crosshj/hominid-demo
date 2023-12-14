@@ -1,15 +1,17 @@
-import { useContext } from 'react';
-import { MobileMenuContext } from './MenuMobile';
 import './Header.css';
 
 export const Header = (headerArgs) => {
-	const { setMobileMenu } = useContext(MobileMenuContext);
-	const { children } = headerArgs;
+	const { openMobileMenuFn, children } = headerArgs;
 	const Logo = children[1].find((x) => x.props.type === 'Logo');
 	return (
 		<header className="main-head">
 			{Logo}
-			<button className="mobileMenuButton" onClick={() => setMobileMenu(true)}>Menu</button>
+			<button
+				className="mobileMenuButton"
+				onClick={openMobileMenuFn}
+			>
+				Menu
+			</button>
 		</header>
 	);
 };

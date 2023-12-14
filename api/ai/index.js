@@ -1,5 +1,6 @@
 const { system, user } = require('./_prompts');
 const { OPENAI_KEY } = process.env;
+const menuDefault = require('../../mocks/ai/menuDefault');
 
 const defaultMenus = {
 	status: 200,
@@ -9,8 +10,7 @@ const defaultMenus = {
 				cacheExpires: null,
 				name: 'ui.sp_GetData',
 				uuid: '8a4e473e-a953-49ca-a797-7224a39bc91e',
-				results:
-					'[{"key":"Menu.Books","properties":"class:menu-item","label":"Books 😁"},{"key":"Menu.Authors","properties":"class:menu-item","label":"Authors"},{"key":"Menu.Bestsellers","properties":"class:menu-item","label":"Bestsellers"},{"key":"Menu.Fiction","properties":"class:menu-item","label":"Fiction"},{"key":"Menu.NonFiction","properties":"class:menu-item","label":"Non-Fiction"},{"key":"Menu.SciFi","properties":"class:menu-item","label":"Sci-Fi"},{"key":"Menu.Mystery","properties":"class:menu-item","label":"Mystery"},{"key":"Menu.History","properties":"class:menu-item","label":"History"},{"key":"Menu.Childrens","properties":"class:menu-item","label":"Children\'s"},{"key":"Menu.Thriller","properties":"class:menu-item","label":"Thriller"}]',
+				results: menuDefault(),
 			},
 		],
 	},
