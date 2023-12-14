@@ -118,6 +118,8 @@ const graphqlRequest = async (req, res) => {
 	}
 };
 
+module.exports.maxDuration = 25;
+
 module.exports = (req, res) => {
 	console.log(`REQ: ${req.url}`);
 	try {
