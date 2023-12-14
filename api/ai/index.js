@@ -21,7 +21,7 @@ const getPayload = async (req) => {
 		seed: 1,
 		temperature: 0,
 		messages: [
-			{ role: 'system', content: system() },
+			{ role: 'system', content: system(req.body) },
 			{ role: 'user', content: user(req.body) },
 		],
 		model: 'gpt-3.5-turbo-1106',

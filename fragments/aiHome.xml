@@ -10,7 +10,7 @@
 	/>
 	<Data
 		name="fragmentContents"
-		getData="ui.sp_UIContextGetComponentsByUserID"
+		getData="aiFragment"
 		param_fragment="global_pathParams.path"
 	/>
 	<Data
