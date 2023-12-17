@@ -29,8 +29,23 @@
 		<Typography variant="h1">Add Issue</Typography>
 		<!-- prettier-ignore -->
 		<Markdown>
-			this is where you add an issue.
+			> NOTE: this is just some chatGPT-generated text
+
+			**Welcome to the Issue Submission Portal.** Your detailed reports are vital to our progress.
+			
+			- **Name**: Start by giving a brief, descriptive title to the issue.
+			- **Priority**: Select the urgency level of the issue, which helps us in timely triage.
+			- **Department**: Indicate the department or team this issue impacts or is responsible for addressing it.
+			- **Description**: Offer a clear and concise explanation of the issue. The more specific you are, the better we can understand and address the problem.
+			- **Steps To Reproduce**: List down the actions that lead to the issue. Numbered steps are preferred for clarity.
+			- **Expected Behavior**: Describe what should have occurred if the issue had not arisen.
+			- **Actual Behavior**: Explain what actually happened, noting any unexpected behavior.
+			
+			Please fill out all the fields thoroughly to help us identify and address the issue efficiently. Once completed, hit the 'Submit' button to send your report.
+			
+			We appreciate your contribution to improving our system.
 		</Markdown>
+		<Typography variant="h2">Issue</Typography>
 		<TextField
 			value="global_newIssue.name"
 			label="Name"
