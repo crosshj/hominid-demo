@@ -9,12 +9,58 @@
 		sx:maxWidth="800px"
 		sx:mx="auto"
 	>
-		<Typography variant="h1">Home</Typography>
+		<Typography variant="h1"> Welcome </Typography>
 		<!-- prettier-ignore -->
 		<Markdown>
-			this is an example of an issue/job tracker.
+			> NOTE: this is just some chatGPT-generated text
+			> this is an example of an issue/job tracker.
 
-			You can:
+			## Introduction
+
+			Welcome to ExampleJobBoard, your all-in-one project management software solution. ExampleJobBoard is designed to streamline your project planning, collaboration, and execution processes. Whether you're a small business owner, a project manager in a large corporation, or a freelance professional, ExampleJobBoard has the tools and features you need to succeed.
+
+			## Key Features
+
+			- **Task Management:** Stay organized with our intuitive task management system. Assign tasks, set deadlines, and track progress effortlessly.
+
+			- **Team Collaboration:** Collaborate seamlessly with your team members. Share files, discuss ideas, and keep everyone in the loop.
+
+			- **Gantt Charts:** Visualize project timelines with our interactive Gantt charts. Identify dependencies and milestones at a glance.
+
+			- **Resource Planning:** Efficiently allocate resources to projects and avoid overloading your team members.
+
+			- **Reporting and Analytics:** Gain insights into your project's performance with detailed reports and analytics.
+
+			- **Integration:** ExampleJobBoard integrates with popular tools like Slack, Dropbox, and Google Workspace for enhanced productivity.
+
+			## Getting Started
+
+			Ready to start managing your projects more efficiently? Here's how to get started with ExampleJobBoard:
+
+			1. [**Sign Up:**](signup.md) Create your ExampleJobBoard account and start a 30-day free trial.
+			2. [**Onboarding:**](onboarding.md) Our onboarding guide will walk you through the setup process.
+			3. [**Tutorials:**](tutorials.md) Explore our tutorials to learn how to make the most of ExampleJobBoard's features.
+
+			## Pricing
+
+			ExampleJobBoard offers flexible pricing plans to cater to your specific needs. Whether you're a solo entrepreneur or part of a large enterprise, we have a plan that suits you. Check out our [pricing page](pricing.md) for details.
+
+			## Testimonials
+
+			Don't just take our word for it! See what our customers have to say about ExampleJobBoard:
+			---
+			> "ExampleJobBoard has transformed the way we handle projects. It's user-friendly and has everything we need in one place." - John, CEO of XYZ Inc.
+			---
+			> "I've tried many project management tools, but ExampleJobBoard stands out. It's intuitive, powerful, and has excellent customer support." - Sarah, Project Manager
+
+			## Contact Us
+
+			Have questions or need assistance? Our support team is here to help. Reach out to us at [support@ExampleJobBoard.com](mailto:support@ExampleJobBoard.com) or visit our [contact page](#/contact).
+
+			Join the thousands of professionals who trust ExampleJobBoard for their project management needs. Start your journey to success today!
+
+
+			## Site Map 
 			- [+Issue](#/addIssue) - add an issue
 			- [Issues](#/issues) - view all issues
 			- [Board](#/board) - view the job board

@@ -12,7 +12,43 @@
 		<Typography variant="h1">Wiki</Typography>
 		<!-- prettier-ignore -->
 		<Markdown>
-			this is where you the wiki lives.
+			> NOTE: this is just some chatGPT-generated text
+
+			Welcome to the Project Management Software Wiki! This collaborative platform is dedicated to providing comprehensive information and resources about various project management software tools.
+			
+			## About Project Management Software
+			
+			Project management software plays a crucial role in planning, organizing, and executing projects efficiently. Whether you're a seasoned project manager or just getting started, this wiki is your go-to source for:
+			
+			- **Software Reviews:** In-depth reviews and comparisons of popular project management software solutions.
+			- **Tutorials:** Step-by-step guides and tutorials on how to use different project management tools effectively.
+			- **Best Practices:** Tips and best practices for project management, including agile methodologies, Gantt charts, and more.
+			- **Case Studies:** Real-world case studies showcasing successful project management implementations.
+			- **Community Discussions:** Engage with a community of project management enthusiasts, share your experiences, and seek advice.
+			
+			## Getting Started
+			
+			If you're new to project management software or this wiki, here are some recommended starting points:
+			
+			1. [**Introduction to Project Management**](link-to-intro.md): Learn the fundamentals of project management and why software tools are essential.
+			2. [**Software Comparison**](software-comparison.md): Compare different project management software options to find the one that suits your needs.
+			3. [**Getting Started Guide**](getting-started-guide.md): A step-by-step guide to setting up your first project using our recommended software.
+			
+			## Contributing
+			
+			This wiki thrives on community contributions. If you have expertise in project management software or related topics, we encourage you to contribute:
+			
+			- Add or edit articles to share your knowledge.
+			- Join discussions and provide insights in the community forums.
+			- Report issues or suggest improvements.
+			
+			We believe that collaborative knowledge-sharing makes us all better project managers. Let's build a valuable resource together!
+			
+			## Contact Us
+			
+			If you have any questions, feedback, or suggestions, please feel free to [contact us](contact.md). We value your input and strive to make this wiki a valuable resource for project management professionals.
+			
+			Start exploring the world of project management software with us!
 		</Markdown>
 	</Box>
 </Page>
