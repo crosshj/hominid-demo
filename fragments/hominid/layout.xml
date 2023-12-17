@@ -49,6 +49,7 @@
 		</Content>
 		<Footer>
 			<Typography>footer</Typography>
+			<!-- https://blog.hubspot.com/website/website-footer -->
 		</Footer>
 		<!-- <Sidebar></Sidebar> -->
 	</Layout>
