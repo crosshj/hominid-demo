@@ -1,14 +1,14 @@
 import './MenuMobile.css';
 
-export const MenuMobile = ({ Menu, closeMobileMenuFn, mobileMenuOpen }) => {
-	if (!mobileMenuOpen) return null;
+export const MenuMobile = ({ Menu, mobileMenuOpen, setMobileMenuFn }) => {
+	if (mobileMenuOpen + '' !== 'true') return null;
 	return (
 		<nav className="mobile-nav">
 			<div className="mobile-nav-header">
 				<div></div>
 				<button
 					className="mobileMenuButton"
-					onClick={closeMobileMenuFn}
+					onClick={() => setMobileMenuFn({ value: false })}
 				>
 					Close
 				</button>

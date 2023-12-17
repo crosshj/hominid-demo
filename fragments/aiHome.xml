@@ -9,7 +9,7 @@
 		getData="aiMenu"
 	/>
 	<Data
-		name="fragmentContents"
+		name="mainContent"
 		getData="aiFragment"
 		param_fragment="global_pathParams.path"
 	/>
@@ -18,33 +18,27 @@
 		defaultValue="false"
 	/>
 
-	<Flow key="openMobileMenu">
+	<Flow key="setMobileMenu">
 		<SetData
 			name="global_mobileMenuOpen"
-			data="true"
-		/>
-	</Flow>
-	<Flow key="closeMobileMenu">
-		<SetData
-			name="global_mobileMenuOpen"
-			data="false"
+			data="flowArgs.value"
 		/>
 	</Flow>
 
 	<Layout
 		mobileMenuOpen="global_mobileMenuOpen"
-		closeMobileMenuFn="runFlow_closeMobileMenu"
+		setMobileMenuFn="runFlow_setMobileMenu"
 	>
-		<Header openMobileMenuFn="runFlow_openMobileMenu">
+		<Header setMobileMenuFn="runFlow_setMobileMenu">
 			<Logo width="150px" />
 		</Header>
 		<Menu
 			items="global_menus"
 			selected="global_pathParams.path"
-			closeMobileMenuFn="runFlow_closeMobileMenu"
+			setMobileMenuFn="runFlow_setMobileMenu"
 		/>
 		<Content>
-			<Fragment contents="global_fragmentContents" />
+			<Fragment contents="global_mainContent" />
 		</Content>
 		<Footer>
 			<Typography>footer</Typography>

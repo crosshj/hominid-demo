@@ -12,7 +12,7 @@ export const Layout = (LayoutArgs) => {
 	const {
 		children,
 		mobileMenuOpen,
-		closeMobileMenuFn,
+		setMobileMenuFn,
 		//
 	} = LayoutArgs;
 
@@ -36,7 +36,7 @@ export const Layout = (LayoutArgs) => {
 			<MenuMobile
 				Menu={Menu}
 				mobileMenuOpen={mobileMenuOpen}
-				closeMobileMenuFn={closeMobileMenuFn}
+				setMobileMenuFn={setMobileMenuFn}
 			/>
 		</>
 	);

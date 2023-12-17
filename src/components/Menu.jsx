@@ -15,7 +15,7 @@ const getMenuItems = ({ items }) => {
 	return menuItems;
 };
 
-const MenuItem = ({ item, i, selected, onItemClick }) => {
+const MenuItem = ({ item, i, selected, setMobileMenuFn }) => {
 	let props = item;
 	try {
 		const { properties } = item;
@@ -39,7 +39,7 @@ const MenuItem = ({ item, i, selected, onItemClick }) => {
 		>
 			<a
 				href={href || key}
-				onClick={(e) => onItemClick(e, { href })}
+				onClick={(e) => setMobileMenuFn({ value: false })}
 			>
 				{label}
 			</a>
@@ -47,7 +47,7 @@ const MenuItem = ({ item, i, selected, onItemClick }) => {
 	);
 };
 export const Menu = (menuArgs) => {
-	const { selected, closeMobileMenuFn: onItemClick } = menuArgs;
+	const { selected, setMobileMenuFn } = menuArgs;
 
 	const items = getMenuItems(menuArgs);
 	if (!Array.isArray(items)) return null;
@@ -60,6 +60,6 @@ export const Menu = (menuArgs) => {
 	}
 
 	const MapMenuItem = (item, i) =>
-		MenuItem({ item, i, selected: selectedOrDefault, onItemClick });
+		MenuItem({ item, i, selected: selectedOrDefault, setMobileMenuFn });
 	return <ul>{items.map(MapMenuItem)}</ul>;
 };
