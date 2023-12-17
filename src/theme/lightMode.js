@@ -1,7 +1,7 @@
 export const lightMode = {
 	//palette values for light mode
 	primary: {
-		main: '#e4000f',
+		main: '#290fe3',
 		dark: '#004081',
 		light: '#337cc7',
 		contrast: '#FFF',
@@ -18,7 +18,7 @@ export const lightMode = {
 		bg: {
 			dark: '#050425',
 			light: '#1c0938',
-		}
+		},
 	},
 	text: {
 		primary: 'rgba(0, 0, 0, 0.87)',

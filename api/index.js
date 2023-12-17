@@ -1,10 +1,21 @@
 const { readFileSync } = require('fs');
 const localServer = require('../server/server');
 const aiHandler = require('./ai/index.js');
-const { lorem } = require('./_utils.js')
+const { lorem } = require('./_utils.js');
 
 const DEFAULT_TOKEN =
 	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImN0IiwiZW1haWwiOiJhdHdvcmtyb2xlK2NoaWxkQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6IkNoaWxkIiwibGFzdE5hbWUiOiJUZW5hbnQiLCJicmFuY2hJZCI6MSwicm9sZUlkIjo1LCJ0ZW5hbnRJZCI6MX0.4cu0yJYvMvzW50aRGwAKEzNK7YqCHBvdF-nZ9CwUxh8';
+
+const ContextAsData = (body) => {
+	const newBody = body
+		.replace(/ContextProc/gm, 'Data')
+		.replace(/ui.sp_UIContextGetComponentsByUserID/gm, 'ui.sp_GetData');
+	const parsedBody = JSON.parse(newBody);
+	parsedBody.data.Data.forEach(
+		(x) => (x.results = JSON.stringify(x.results))
+	);
+	return parsedBody;
+};
 
 const graphqlRequest = async (req, res) => {
 	try {
@@ -12,57 +23,29 @@ const graphqlRequest = async (req, res) => {
 		// const accessToken = req?.cookies?.accessToken;
 		const accessToken = process.env.TEST_TOKEN || DEFAULT_TOKEN;
 		const token = process.env.TEST_TOKEN || DEFAULT_TOKEN;
-		const { operationName, variables } = req?.body;
-		const {
+		let { operationName, variables } = req?.body;
+		let {
 			input: [{ args, name, uuid }],
 		} = variables;
+		let { fragment, fragmentPrefix } = args;
+		fragment = fragment ? `${fragmentPrefix || ''}${fragment}` : undefined;
+		delete args.fragment;
+		delete args.fragmentPrefix;
+
+		if (args?.key === 'contextFragment') {
+			operationName = 'getContext';
+			name = 'ui.sp_UIContextGetComponentsByUserID';
+			args.key = fragment;
+			// console.log({ fragment });
+			variables.input[0].args = args;
+			variables.input[0].name = name;
+		}
 
 		if (
 			name !== 'ui.sp_UIContextGetComponentsByUserID' &&
 			args?.key.startsWith('ai')
 		) {
 			return aiHandler(req, res);
-		}
-
-		if (
-			name === 'ui.sp_GetData' &&
-			args?.key === "ui.sp_UIContextGetComponentsByUserID" &&
-			args?.fragment
-		) {
-			const paragraphs = lorem.generateParagraphs(12).split('\n');
-			const defaultRes = {
-				"data": {
-					"Data": [
-						{
-							"cacheExpires": null,
-							name,
-							uuid,
-							"results": JSON.stringify([
-								{
-									"key": "Page",
-									"type": "Page",
-								},
-								{
-									"parent": "Page",
-									"key": "Page.Typography.0",
-									"type": "Typography",
-									"order": 101,
-									"properties": `textContent:${args.fragment},variant:h1,my:1rem`
-								},
-								...paragraphs.map((x,i) => ({
-									"parent": "Page",
-									"key": "Page.Typography."+(i+1),
-									"type": "Typography",
-									"order": 101 + i,
-									"properties": `textContent:${x.trim()},marginBottom:1rem`
-								}))
-							])
-						}
-					]
-				}
-			};
-			res.statusCode = 200;
-			return res.json(defaultRes);
 		}
 
 		const newInput = (input) => {
@@ -103,14 +86,13 @@ const graphqlRequest = async (req, res) => {
 				...req.headers,
 			},
 		};
-		const { headers, statusCode, body } = await localServer.query(
-			localOpts
-		);
+		let { headers, statusCode, body } = await localServer.query(localOpts);
 		for (const [name, value] of Object.entries(headers)) {
 			res.setHeader(name, value);
 		}
 		res.statusCode = statusCode;
-		res.json(JSON.parse(body));
+		const parsedBody = fragment ? ContextAsData(body) : JSON.parse(body);
+		res.json(parsedBody);
 		return;
 	} catch (e) {
 		console.log(e);

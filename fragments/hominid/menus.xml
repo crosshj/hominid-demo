@@ -1,0 +1,40 @@
+<MenuItem
+	href="#/home"
+	label="Home"
+	icon="Home"
+/>
+<MenuItem
+	href="#/addIssue"
+	label="+Issue"
+	icon="Add"
+/>
+<MenuItem
+	href="#/issues"
+	label="Issues"
+	icon="ListAlt"
+/>
+<MenuItem
+	href="#/board"
+	label="Board"
+	icon="ViewKanban"
+/>
+<MenuItem
+	href="#/gantt"
+	label="Gantt"
+	icon="Analytics"
+/>
+<MenuItem
+	href="#/wiki"
+	label="Wiki"
+	icon="MenuBook"
+/>
+<MenuItem
+	href="#/files"
+	label="Files"
+	icon="DriveFolderUpload"
+/>
+<MenuItem
+	href="#/settings"
+	label="Settings"
+	icon="Settings"
+/>

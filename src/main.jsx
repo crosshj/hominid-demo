@@ -24,7 +24,7 @@ const components = {
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);
 const page = {
-	fragment: 'hominidHome',
+	fragment: 'hominidLayout',
 	authorized: false,
 	title: 'hominid',
 };

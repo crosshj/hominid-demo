@@ -1,0 +1,18 @@
+<Page>
+	<Box
+		display="flex"
+		flexDirection="column"
+		gap="2"
+		sx:mb="200px"
+		sx:mt="1em"
+		sx:width="100%"
+		sx:maxWidth="800px"
+		sx:mx="auto"
+	>
+		<Typography variant="h1">Gantt</Typography>
+		<!-- prettier-ignore -->
+		<Markdown>
+			this is where you view the Gantt chart.
+		</Markdown>
+	</Box>
+</Page>

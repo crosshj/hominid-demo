@@ -1,0 +1,85 @@
+<Page>
+	<Data
+		name="newIssue"
+		defaultValue="{}"
+	/>
+	<Data
+		name="issuePrioritySelect"
+		defaultValue='[{ "value": "High", "label": "High"}, { "value": "Medium", "label": "Medium"}, { "value": "Low", "label": "Low"}]'
+	/>
+	<Flow key="submitIssue">
+		<!-- prettier-ignore -->
+		<Confirm title="Submit this issue?">
+			Name: {{ newIssue.name }}
+			Priority: {{ newIssue.priority }}
+			Department: {{ newIssue.department }}
+		</Confirm>
+	</Flow>
+
+	<Box
+		display="flex"
+		flexDirection="column"
+		gap="2"
+		sx:mb="200px"
+		sx:mt="1em"
+		sx:width="100%"
+		sx:maxWidth="800px"
+		sx:mx="auto"
+	>
+		<Typography variant="h1">Add Issue</Typography>
+		<!-- prettier-ignore -->
+		<Markdown>
+			this is where you add an issue.
+		</Markdown>
+		<TextField
+			value="global_newIssue.name"
+			label="Name"
+			autoComplete="off"
+		/>
+		<TextField
+			label="Priority"
+			value="global_newIssue.priority"
+			options="global_issuePrioritySelect"
+			select
+		/>
+		<TextField
+			value="global_newIssue.department"
+			label="Department"
+			autoComplete="off"
+		/>
+		<TextField
+			value="global_newIssue.description"
+			label="Description"
+			multiline
+			minRows="2"
+			autoComplete="off"
+		/>
+		<TextField
+			value="global_newIssue.steps"
+			label="Steps To Reproduce"
+			multiline
+			minRows="5"
+			autoComplete="off"
+		/>
+		<TextField
+			value="global_newIssue.expected"
+			label="Expected Behavior"
+			multiline
+			minRows="2"
+		/>
+		<TextField
+			value="global_newIssue.actual"
+			label="Actual Behavior"
+			multiline
+			minRows="2"
+		/>
+		<Button
+			label="Submit"
+			href="flow:submitIssue"
+			sx:mx="auto"
+			sx:width="100%"
+			sx:maxWidth="200px"
+			sx:mt="1em"
+		/>
+	</Box>
+</Page>

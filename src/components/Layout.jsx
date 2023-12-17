@@ -28,10 +28,10 @@ export const Layout = (LayoutArgs) => {
 				<nav className="main-nav">{Menu}</nav>
 				<div className="content">
 					<article>{Content}</article>
-					<footer className="main-footer">main-footer</footer>
+					<footer className="main-footer">{/* main-footer */}</footer>
 				</div>
 				{/* <aside className="side">Sidebar</aside> */}
-				<footer className="mobile-footer">mobile-footer</footer>
+				<footer className="mobile-footer">{/* mobile-footer */}</footer>
 			</div>
 			<MenuMobile
 				Menu={Menu}

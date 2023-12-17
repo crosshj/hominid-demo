@@ -1,0 +1,27 @@
+<Page>
+	<Box
+		display="flex"
+		flexDirection="column"
+		gap="2"
+		sx:mb="200px"
+		sx:mt="1em"
+		sx:width="100%"
+		sx:maxWidth="800px"
+		sx:mx="auto"
+	>
+		<Typography variant="h1">Home</Typography>
+		<!-- prettier-ignore -->
+		<Markdown>
+			this is an example of an issue/job tracker.
+
+			You can:
+			- [+Issue](#/addIssue) - add an issue
+			- [Issues](#/issues) - view all issues
+			- [Board](#/board) - view the job board
+			- [Gantt](#/gantt) - view the project Gantt
+			- [Wiki](#/wiki) - view Wiki for notes and guides
+			- [Files](#/files) - add, remove, and upload files
+			- [Settings](#/settings) - view and modify project settings
+		</Markdown>
+	</Box>
+</Page>
