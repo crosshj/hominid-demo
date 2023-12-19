@@ -1,0 +1,15 @@
+<MenuItem
+	href="#/home"
+	label="Home"
+	icon="Home"
+/>
+<MenuItem
+	href="#/myIdeas"
+	label="My Ideas"
+	icon="myIdeas"
+/>
+<MenuItem
+	href="#/ideas"
+	label="All Ideas"
+	icon="allIdeas"
+/>
