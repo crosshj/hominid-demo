@@ -1,0 +1,43 @@
+<Page>
+	<Box
+		display="flex"
+		flexDirection="column"
+		gap="2"
+		sx:mb="200px"
+		sx:mt="1em"
+		sx:width="100%"
+		sx:maxWidth="800px"
+		sx:mx="auto"
+	>
+		<Typography variant="h1">Overview</Typography>
+		<!-- prettier-ignore -->
+		<Markdown>
+			> NOTE: this is just some chatGPT-generated text; this is an example of an issue/job tracker.
+
+			## 🐾 Welcome to our Animal Fundraising Ideas Hub! 🐾
+
+			Discover a world of compassion and creativity as you explore our curated collection of animal fundraising ideas. Whether you're a passionate pet advocate, an animal shelter volunteer, or simply an animal lover, this space is designed to inspire, inform, and empower you to make a positive impact on the lives of our furry friends.
+
+			### 🌟 What's in Store:
+
+			1. **Creative Campaigns:** Unleash your creativity by perusing a variety of unique fundraising campaigns. From heartwarming rescue missions to playful pet-themed challenges, find the perfect idea to support the cause closest to your heart.
+
+			2. **Engaging Events:** Dive into a calendar of upcoming animal-focused events that bring our community together. From virtual pet shows to collaborative gatherings, there's always something exciting on the horizon to participate in or support.
+
+			3. **Heartfelt Stories:** Be moved by the touching success stories of animals finding forever homes through the power of your contributions. Each donation, big or small, makes a difference, and here, you can witness the heartwarming transformations firsthand.
+
+			4. **Interactive Challenges:** Explore fundraising challenges designed to spark friendly competition and rally support for the welfare of our beloved companions. From themed challenges to interactive contests, there's a paw-some opportunity for everyone to get involved.
+
+			5. **Collaborative Initiatives:** Discover the impact of partnerships and collaborations with like-minded organizations. Together, we amplify our efforts to create a brighter future for animals in need.
+
+			🐶🐱 **How to Navigate:**
+
+			Navigate effortlessly through our Browse section to find the inspiration you seek. Whether you're a fundraiser, volunteer, or an animal enthusiast, there's a wealth of ideas waiting for you. Click, explore, and join us on a journey of compassion and advocacy.
+
+			Thank you for being a part of our mission to make the world a better place for our furry companions. Together, let's turn every wag, purr, and chirp into a tale of hope and happiness!
+
+			Start browsing and let the adventure begin! 🌈✨
+
+		</Markdown>
+	</Box>
+</Page>

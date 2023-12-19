@@ -4,12 +4,18 @@
 	icon="Home"
 />
 <MenuItem
-	href="#/myIdeas"
-	label="My Ideas"
-	icon="myIdeas"
+	href="#/profile"
+	label="Profile"
+	icon="profile"
 />
 <MenuItem
-	href="#/ideas"
-	label="All Ideas"
-	icon="allIdeas"
+	href="#/overview"
+	label="Overview"
+	icon="overview"
+/>
+
+<MenuItem
+	href="#/browse"
+	label="Browse"
+	icon="browse"
 />

@@ -1,0 +1,71 @@
+<Page>
+	<Box
+		display="flex"
+		flexDirection="column"
+		gap="2"
+		sx:mb="200px"
+		sx:mt="1em"
+		sx:width="100%"
+		sx:maxWidth="800px"
+		sx:mx="auto"
+	>
+		<Typography variant="h1">Profile</Typography>
+		<!-- prettier-ignore -->
+		<Markdown>
+			![Profile Picture](url_to_profile_picture.jpg)
+
+			## About Me
+
+			Hello fellow animal lover! 🐾 I'm [Your Name], and I am on a mission to make the world a better place for our furry friends. My heart beats for animals, and I'm dedicated to supporting various causes that promote their well-being.
+
+			## My Animal Tribe
+
+			- 🐕 Proud Dog Parent
+			- 🐈 Cat Enthusiast
+			- 🐾 Wildlife Conservation Advocate
+
+			## Fundraising Stats
+
+			- **Total Funds Raised:** $X,XXX
+			- **Number of Campaigns:** X
+			- **Badges & Achievements:** 🏆 [List any badges or achievements]
+
+			## My Campaigns
+
+			Here are some of my ongoing and past campaigns:
+
+			1. **[Campaign Name 1](link_to_campaign_1)**
+			- Raised $XXX
+			- Helped rescue [specific animal]
+
+			2. **[Campaign Name 2](link_to_campaign_2)**
+			- Raised awareness for [cause]
+			- Hosted a virtual pet adoption event
+
+			## My Contributions
+
+			Recent contributions to animal causes:
+
+			- Donated $XXX to [Animal Shelter Name]
+			- Supported [Wildlife Conservation Organization]
+
+			## Connect with Me
+
+			Let's join paws on social media:
+
+			- [Twitter](https://twitter.com/YourTwitterHandle)
+			- [Instagram](https://www.instagram.com/YourInstagramHandle)
+			- [LinkedIn](https://www.linkedin.com/in/YourLinkedInProfile)
+
+			## Settings
+
+			- **Notification Preferences:** 🛎️ [Customize your notification settings]
+			- **Account Privacy:** 🔒 [Adjust privacy settings]
+
+			---
+
+			*Feel free to adapt this profile section based on the features and information you want to showcase on your animal fundraising ideas website.*
+
+		</Markdown>
+	</Box>
+</Page>
