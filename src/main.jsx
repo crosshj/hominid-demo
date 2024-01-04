@@ -36,5 +36,9 @@ if (document.location.pathname.startsWith('/ai')) {
 	page.fragment = 'aiHome';
 	page.title = 'hominid GPT';
 }
+if (document.location.pathname.startsWith('/fundpaw')) {
+	page.fragment = 'fundpawLayout';
+	page.title = 'fundpaw';
+}
 
 root.render(<App {...{ components, theme, page }} />);

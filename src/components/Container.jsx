@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const Container = (args) => {
 	const { slug, title, children } = args;
 	const childItems = children[1].filter((x) => x.props.type !== 'Logo');
