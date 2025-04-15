@@ -1,0 +1,14 @@
+{
+    "buildCommand": "npm run build",
+    "devCommand": "npm run start",
+    "rewrites": [
+        {
+            "source": "/api/auth/(.*)",
+            "destination": "/api/auth"
+        },
+        {
+            "source": "/api/(.*)",
+            "destination": "/api"
+        }
+    ]
+}

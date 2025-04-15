@@ -1,0 +1,67 @@
+/* UTILS */
+
+.truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.flex {
+	display: flex;
+}
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+/* consistent with: https://tailwindcss.com/docs/align-items */
+.items-start {
+	align-items: flex-start;
+}
+.items-end {
+	align-items: flex-end;
+}
+.items-center {
+	align-items: center;
+}
+.items-baseline {
+	align-items: baseline;
+}
+.items-stretch {
+	align-items: stretch;
+}
+
+/* consistent with: https://tailwindcss.com/docs/justify-content */
+.justify-normal {
+	justify-content: normal;
+}
+.justify-start {
+	justify-content: flex-start;
+}
+.justify-end {
+	justify-content: flex-end;
+}
+.justify-center {
+	justify-content: center;
+}
+.justify-between {
+	justify-content: space-between;
+}
+.justify-around {
+	justify-content: space-around;
+}
+.justify-evenly {
+	justify-content: space-evenly;
+}
+.justify-stretch {
+	justify-content: stretch;
+}
+
+.hide-empty-pagination {
+	display: none;
+}
+/* UTILS (end) */

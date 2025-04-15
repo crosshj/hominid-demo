@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
+html,
+body {
+	overscroll-behavior-x: none;
+}
+:root {
+	--dark-bg-default: #18160c;
+	--dark-bg-paper: #2b2703;
+}
+#root {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+body {
+	overflow: hidden;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+x-comment {
+	display: none;
+}
+
+/* NESTABLE TABLE */
+.nestable-table {
+	overflow-x: auto;
+}
+.nest-cell.justifyEnd {
+	justify-content: flex-end;
+}
+.nest-cell.justifyStart {
+	justify-content: start;
+}
+.nest-cell.justifyCenter {
+	justify-content: center;
+}
+.nest-cell {
+	padding: 8px 1em;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.nest-cell.nest-level-1 {
+	padding: 1.25em 1em;
+}
+
+.nestable-table:not(.chromeless) .nest-cell:not(.header):not(.no-underline),
+.nestable-table:not(.chromeless) .nest-cell.actions .actions-buttons {
+	border-bottom: 1px solid #ccc;
+}
+.nestable-table .table-header:not(.nest-cell) {
+	display: flex;
+	font-weight: 500;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	/* switching from margin to padding below causes table to overflow/scroll */
+	margin-left: 1em;
+	margin-right: 1em;
+	text-wrap: nowrap;
+}
+.header:not([class*='nest-spacer']) {
+	padding: 0.5em 0;
+}
+/* un-nested table, no pad on row between table headers and table */
+.levels-1 .nest-level-1.header:not([class*='nest-spacer']) {
+	padding: 0;
+}
+
+.header:not([class*='nest-spacer']) {
+	display: flex;
+	align-items: center;
+}
+.footer:not([class*='nest-spacer']) {
+	padding: 0.2em 0;
+	display: flex;
+	align-items: center;
+}
+.nestable-table.chromeless .header,
+.nestable-table.chromeless .footer {
+	padding: 0;
+}
+
+/* .header:not([class*='nest-spacer']).nest-level-1 {
+	padding: 0;
+} */
+
+.nest-cell.actions {
+	border-bottom: 0;
+	display: flex;
+	padding: 0;
+}
+.actions {
+	display: flex;
+	justify-content: flex-end;
+}
+.nest-cell.actions .actions-spacer {
+	width: 1.5em;
+}
+
+.nest-header {
+	font-weight: 500;
+}
+.nest-footer {
+	padding-bottom: 0.5em;
+}
+.footer-closed {
+	height: 0;
+	padding: 0 !important;
+}
+.footer {
+	box-shadow: inset 0 -1px 0 var(--nest-border-color);
+}
+.header {
+	box-shadow: inset 0 1px 0 var(--nest-border-color);
+}
+.header[class*='nest-spacer-'],
+.footer[class*='nest-spacer-'] {
+	box-shadow: unset;
+}
+.row-spacer {
+	height: 0.5em;
+}
+.nest-header-icon,
+.nest-header-name {
+	margin-right: 0.5em;
+}
+.nest-header-status {
+	zoom: 0.7;
+	text-transform: uppercase;
+}
+.nest-header-status > span {
+	font-size: 1.3em;
+	font-weight: 400;
+}
+
+/* NEST BG COLORS */
+.nest-level-1.row-spacer {
+	background: transparent;
+}
+
+.nest-level-2.row-spacer,
+.nest-level-2.nest-spacer-1,
+.nest-level-3.nest-spacer-1,
+.nest-level-4.nest-spacer-1,
+.nest-level-1 {
+	background: var(--nest-level-1-bg);
+}
+
+.nest-level-3.nest-spacer-2,
+.nest-level-4.nest-spacer-2,
+.nest-level-3.row-spacer:not(.nest-spacer-1),
+.nest-level-2 {
+	background: var(--nest-level-2-bg);
+}
+
+.nest-level-4.nest-spacer-3,
+.nest-level-4.row-spacer:not(.nest-spacer-1):not(.nest-spacer-2),
+.nest-level-3 {
+	background: var(--nest-level-3-bg);
+}
+
+.nest-level-4 {
+	background: var(--nest-level-4-bg);
+}
+
+.nest-cell:not(.header) {
+	background: var(--cell-bg);
+}
+.nest-adder-link {
+	color: var(--nest-link-color);
+	margin: auto;
+	display: flex;
+	cursor: pointer;
+}
+.nest-adder-link span {
+	margin-left: 0.5em;
+}
+.nest-adder-link:hover span {
+	text-decoration: underline;
+}
+
+/* NEST CORNERS */
+.nest-level-1.nest-spacer-1:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4:not(.cell):not(.row-spacer):after {
+	content: '';
+	border-top-left-radius: 10px;
+	width: 100%;
+	height: 100%;
+	display: block;
+	box-shadow:
+		inset 1px 0 0 0 var(--nest-border-color),
+		inset 0 1px 0 0 var(--nest-border-color);
+}
+.nest-level-1.nest-spacer-1.end:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2.end:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3.end:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4.end:not(.cell):not(.row-spacer):after {
+	border-top-left-radius: 0;
+	border-top-right-radius: 10px;
+	box-shadow:
+		inset -1px 0 0 0 var(--nest-border-color),
+		inset 0 1px 0 0 var(--nest-border-color);
+}
+.nest-level-1.nest-spacer-1.footer:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2.footer:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3.footer:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4.footer:not(.cell):not(.row-spacer):after {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 10px;
+	box-shadow:
+		inset 1px 0 0 0 var(--nest-border-color),
+		inset 0 -1px 0 0 var(--nest-border-color);
+}
+.nest-level-1.nest-spacer-1.footer.end:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2.footer.end:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3.footer.end:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4.footer.end:not(.cell):not(.row-spacer):after {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 10px;
+	box-shadow:
+		inset -1px 0 0 0 var(--nest-border-color),
+		inset 0 -1px 0 0 var(--nest-border-color);
+}
+/* CORNERS CLOSED*/
+.nest-level-1.nest-spacer-1.closed:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2.closed:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3.closed:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4.closed:not(.cell):not(.row-spacer):after {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow:
+		inset 1px 0 0 0 var(--nest-border-color),
+		inset 0 1px 0 0 var(--nest-border-color),
+		inset 0 -1px 0 0 var(--nest-border-color);
+}
+.nest-level-1.nest-spacer-1.end.closed:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2.end.closed:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3.end.closed:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4.end.closed:not(.cell):not(.row-spacer):after {
+	border-top-left-radius: 0;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 10px;
+	box-shadow:
+		inset -1px 0 0 0 var(--nest-border-color),
+		inset 0 1px 0 0 var(--nest-border-color),
+		inset 0 -1px 0 0 var(--nest-border-color);
+}
+.nest-level-1.nest-spacer-1.footer.closed:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2.footer.closed:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3.footer.closed:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4.footer.closed:not(.cell):not(.row-spacer):after {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 10px;
+	box-shadow:
+		inset 1px 0 0 0 var(--nest-border-color),
+		inset 0 -1px 0 0 var(--nest-border-color);
+}
+.nest-level-1.nest-spacer-1.footer.end.closed:not(.cell):not(.row-spacer):after,
+.nest-level-2.nest-spacer-2.footer.end.closed:not(.cell):not(.row-spacer):after,
+.nest-level-3.nest-spacer-3.footer.end.closed:not(.cell):not(.row-spacer):after,
+.nest-level-4.nest-spacer-4.footer.end.closed:not(.cell):not(
+		.row-spacer
+	):after {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 10px;
+	box-shadow:
+		inset -1px 0 0 0 var(--nest-border-color),
+		inset 0 -1px 0 0 var(--nest-border-color);
+}
+
+.nest-level-1.nest-spacer-1:not(.cell) {
+	background: transparent;
+	box-shadow: unset;
+}
+.nest-level-1.nest-spacer-1:not(.cell):after {
+	background: var(--nest-level-1-bg);
+	box-shadow: unset;
+}
+
+.nest-level-2.nest-spacer-2:not(.cell) {
+	background: var(--nest-level-1-bg);
+	box-shadow: unset;
+}
+.nest-level-2.nest-spacer-2:not(.cell):after {
+	background: var(--nest-level-2-bg);
+	box-shadow: unset;
+}
+
+.nest-level-3.nest-spacer-3:not(.cell) {
+	background: var(--nest-level-2-bg);
+	box-shadow: unset;
+}
+.nest-level-3.nest-spacer-3:not(.cell):after {
+	background: var(--nest-level-3-bg);
+	box-shadow: unset;
+}
+
+.nest-level-4.nest-spacer-4:not(.cell) {
+	background: var(--nest-level-3-bg);
+	box-shadow: unset;
+}
+.nest-level-4.nest-spacer-4:not(.cell):after {
+	background: var(--nest-level-4-bg);
+	box-shadow: unset;
+}
+
+.nestable-table .nest-addon {
+	min-height: 40px;
+}
+.addon.header.nest-header,
+.addon.footer.nest-footer {
+	height: 8px;
+	padding: 0;
+}
+.table-row-container {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column: 1 / -1;
+	border-radius: 11px;
+}
+
+/* CodeBlock's */
+.hljs {
+	width: 100%;
+	display: inline-block;
+	overflow-x: auto;
+	-webkit-text-size-adjust: none;
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+
+.markdown table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.markdown tr:nth-child(even) {
+	background-color: #8888880c;
+}
+.markdown th {
+	background-color: #8882;
+	font-weight: 500;
+	text-wrap: nowrap;
+}
+.markdown th,
+.markdown td {
+	padding: 12px 15px;
+	text-align: left;
+	border-bottom: 1px solid #e1e1e1;
+	width: 1%;
+	text-wrap: nowrap;
+}
+.markdown thead th:last-child,
+.markdown tr td:last-child {
+	width: auto;
+	text-wrap: wrap;
+}
+
+.spinning {
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* .markdown th:first-child,
+.markdown td:first-child {
+	padding-left: 0;
+}
+.markdown th:last-child,
+.markdown td:last-child {
+	padding-right: 0;
+} */
+
+:root {
+	--color-bg: transparent;
+	--color-bar: #ddd;
+	--gradient: linear-gradient(72deg, var(--color-bar), var(--color-bg));
+}
+.placeholder {
+	position: relative;
+	min-height: 150px;
+}
+.placeholder:before {
+	content: ' ';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: var(--gradient);
+	background-size: 400% 400%;
+	animation: placeholder-animate 1.5s ease-in-out infinite;
+	border-radius: 5px;
+}
+@keyframes placeholder-animate {
+	0% {
+		background-position: 70% 0%;
+	}
+	50% {
+		background-position: 30% 100%;
+	}
+	100% {
+		background-position: 70% 0%;
+	}
+}
+
+.signatureCanvas {
+	width: 100%;
+	height: 100%;
+}

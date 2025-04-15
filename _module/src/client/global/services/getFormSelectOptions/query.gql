@@ -1,0 +1,19 @@
+query getOptions($input: [ProcInput]) {
+	ContextProc(input: $input) {
+		uuid
+		name
+		cacheExpires
+		error
+		results {
+			key
+			label
+			default
+			value
+			type
+			parent
+			target
+			properties
+			order
+		}
+	}
+}

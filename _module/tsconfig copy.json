@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        //"lib": ["es6", "dom"],
+        "jsx": "react",
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "noEmitOnError": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "pretty": true,
+        "sourceMap": true,
+        "strict": false
+    }
+}

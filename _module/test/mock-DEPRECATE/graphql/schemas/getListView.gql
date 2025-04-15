@@ -1,0 +1,6 @@
+query getListView($name: String) {
+	sp_GetResourceListViews(ListViewName: $name) {
+		columns
+		rows
+	}
+}

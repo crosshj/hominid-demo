@@ -1,0 +1,28 @@
+{
+    "name": "test-aowss-web",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "start": "vite --port $PORT",
+        "build": "vite build",
+        "preview": "vite preview",
+        "watch": "vercel dev --listen 3000",
+        "updateModule": "npm rm @awoss/web && npm run cleanVite && npm i @awoss/web@latest",
+        "cleanVite": "rm -rf node_modules/.vite"
+    },
+    "dependencies": {
+        "@awoss/web": "0.0.0-61",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "devDependencies": {
+        "@esbuild-plugins/node-globals-polyfill": "0.2.3",
+        "@esbuild-plugins/node-modules-polyfill": "0.2.2",
+        "@types/react": "18.2.15",
+        "@types/react-dom": "18.2.7",
+        "@vitejs/plugin-react-swc": "3.3.2",
+        "dotenv": "16.3.1",
+        "vercel": "32.5.0",
+        "vite": "4.4.5"
+    }
+}

@@ -1,0 +1,306 @@
+<Page>
+    <!-- #region Data -->
+    <Data
+        name='nestedLevels3'
+        proc='ui.sp_GetResourceListViews'
+        procArg='featuresNestedTableLevels3Complex'
+    />
+
+    <!-- #endregion Data -->
+
+    <!-- #region flows -->
+    <Flow key='addFirstLevel'>
+        <Confirm title="addFirstLevel">
+            Add a new row to the table (no row-associated info is relevant)!
+            But... feel free to look in your dev console!
+
+            BONUS: this flow will also set table to loading state if you press Yes.
+        </Confirm>
+        <SetData
+            name="global_nestedLevels3"
+            data="undefined"
+        />
+    </Flow>
+    <Flow key='addFirstLevelChild'>
+        <Confirm title="addFirstLevelChild" alertText="Okay">
+            Add a new row at {{flowArgs.firstLevelName}}!
+
+            Look at flowArgs in your dev console for more information!
+        </Confirm>
+    </Flow>
+    <Flow key='addSecondLevelChild'>
+        <Confirm title="addSecondLevelChild" alertText="Okay">
+            Add a new row at {{flowArgs.secondLevelName}}!
+
+            Look at flowArgs in your dev console for more information!
+        </Confirm>
+    </Flow>
+    <Flow key='addThirdLevelChild'>
+        <Insert
+            name="global_nestedLevels3"
+            firstLevelName="flowArgs.firstLevelName"
+            secondLevelName="flowArgs.secondLevelName"
+            thirdLevelName="flowArgs.thirdLevelName"
+            editing="true"
+        />
+    </Flow>
+    <Flow key='rowActionDelete'>
+        <Confirm title="Does This Make Sense?" alertText="Not Sure">
+            Does this action always make sense, ie. can you delete a nest?
+
+            Look at flowArgs in your dev console for more information!
+        </Confirm>
+    </Flow>
+    <Flow key='rowActionEdit'>
+        <SetData
+            name="global_nestedLevels3[flowArgs.index]"
+            editing="true"
+        />
+    </Flow>
+    <Flow key='rowActionSubmit'>
+        <SetData
+            name="global_nestedLevels3[flowArgs.index]"
+            editing="false"
+        />
+    </Flow>
+
+    <!-- #endregion flows -->
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label='Features / Data / Complex 1'>
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Markdown>
+            This example shows a complex table setup with each of the following:
+            - Nested Rows (3 groupings here)
+            - Nested Headers with totals
+            - Tokenized Cell values, with formatters
+            - Addon Rows (one at the end, 3 inside nests)
+            - Mulitiple, Related Option lists in each row (dependent cells)
+
+            see [complex1](/features/tables/complex1) for 0,1,2 level table variants
+            see [complex2](/features/data/complex2) for dependent option list variants
+
+            [example figma usage](https://www.figma.com/file/NiwITNhzmuJKcVHVT3dlHG/CHILD-TENANT-USER-SCREENS?type=design&node-id=80-160072&mode=dev)
+
+            Progress:
+            - [X] render addon rows at Level
+            - [X] trigger a flow which adds relevant table row when addon is clicked
+            - [ ] make sure this works with multiple bound options lists
+
+            Other Goals:
+            - [X] auto-compute column spans -> can now have one `span="auto"` per Header or Addon
+            - [X] make actions line up
+            - [X] ability set collapsible per level
+            - [X] collapse works correctly (fix id bugs)
+            - [X] use SetData (tableSource=undefined) to make table show loading screen
+            - [X] disable indented="true"
+            - [X] fix table horizontal scroll issues (should be fixed, check this!)
+            - [!] make actions less painful
+            - [!] advanced addon styling (background, border, etc) - HEAVY LIFT, DO LATER OR NEVER
+        </Markdown>
+
+        <NestedTable 
+            source="nestedLevels3"
+            collapsible="true"
+        >
+            <Nest>
+                <Level param='firstLevelName'>
+                    <Header>
+                        <Column span="auto">
+                            <Typography>{{row_firstLevelName}}</Typography>
+                        </Column>
+                        <Column>
+                            <Typography>{{row_firstLevelName}}</Typography>
+                        </Column>
+                        <Column paddingLeft="0" paddingRight="0">
+                            <IconButton
+                                icon='Delete'
+                                color='grey700'
+                                href="flow:rowActionDelete"
+                            />
+                        </Column>
+                    </Header>
+
+                    <!-- NEW FEATURE: Addon for nest -->
+                    <Addon>
+                        <Column span="auto" align="center">
+                            <Link
+                                href="flow:addFirstLevelChild"
+                                textContent="+ First Level Child"
+                            />
+                        </Column>
+                    </Addon>
+                </Level>
+
+                <Level param='secondLevelName' collapsible="false">
+                    <Header>
+                        <Column span="auto">
+                            <Typography>{{row_secondLevelName}}</Typography>
+                        </Column>
+                        <Column>
+                            <Typography>{{row_secondLevelName}}</Typography>
+                        </Column>
+                        <Column>
+                            <Typography>{{row_firstLevelName}}</Typography>
+                        </Column>
+                        <Column paddingLeft="0" paddingRight="0">
+                            <IconButton
+                                icon='Delete'
+                                color='grey700'
+                                href="flow:rowActionDelete"
+                            />
+                        </Column>
+                    </Header>
+
+                    <!-- NEW FEATURE: Addon for nest -->
+                    <Addon>
+                        <Column span="auto" align="center">
+                            <Link
+                                href="flow:addSecondLevelChild"
+                                textContent="+ Second Level Child"
+                            />
+                        </Column>
+                    </Addon>
+                </Level>
+
+                <Level param='thirdLevelName' collapsible="true">
+                    <Header>
+                        <Column span="auto">
+                            <Typography>{{row_thirdLevelName}}</Typography>
+                        </Column>
+                        <Column>
+                            <Typography>{{row_thirdLevelName}}</Typography>
+                        </Column>
+                        <Column>
+                            <Typography>{{row_secondLevelName}}</Typography>
+                        </Column>
+                        <Column>
+                            <Typography>{{row_firstLevelName}}</Typography>
+                        </Column>
+                        <Column paddingLeft="0" paddingRight="0">
+                            <IconButton
+                                icon='Delete'
+                                color='grey700'
+                                href="flow:rowActionDelete"
+                            />
+                        </Column>
+                    </Header>
+
+                    <!-- NEW FEATURE: Addon for nest -->
+                    <Addon>
+                        <Column span="auto" align="center">
+                            <Link
+                                href="flow:addThirdLevelChild"
+                                textContent="+ Third Level Child"
+                            />
+                        </Column>
+                    </Addon>
+                </Level>
+            </Nest>
+
+            <Column label="3rd Level Child">
+                <Typography
+                    display="WHEN row_editing IS undefined THEN block ELSE none"
+                >
+                    {{row_nestedChildName}}
+                </Typography>
+                <TextField
+                    sx:display="WHEN row_editing IS true THEN block ELSE none"
+                    size="small"
+                    type="text"
+                    value="row_nestedChildName"
+                    autoComplete='off'
+                />
+            </Column>
+            <Column label="3rd Level">
+                <Typography
+                    display="WHEN row_editing IS undefined THEN block ELSE none"
+                >
+                    {{row_thirdLevelName}}
+                </Typography>
+                <TextField
+                    sx:display="WHEN row_editing IS true THEN block ELSE none"
+                    size="small"
+                    type="text"
+                    value="row_thirdLevelName"
+                    autoComplete='off'
+                />
+            </Column>
+            <Column label="2nd Level">
+                <Typography
+                    display="WHEN row_editing IS undefined THEN block ELSE none"
+                >
+                    {{row_secondLevelName}}
+                </Typography>
+                <TextField
+                    sx:display="WHEN row_editing IS true THEN block ELSE none"
+                    size="small"
+                    type="text"
+                    value="row_secondLevelName"
+                    autoComplete='off'
+                />
+            </Column>
+            <Column label="1st Level">
+                <Typography
+                    display="WHEN row_editing IS undefined THEN block ELSE none"
+                >
+                    {{row_firstLevelName}}
+                </Typography>
+                <TextField
+                    sx:display="WHEN row_editing IS true THEN block ELSE none"
+                    size="small"
+                    type="text"
+                    value="row_firstLevelName"
+                    autoComplete='off'
+                />
+            </Column>
+            <Column width='min-content' paddingLeft="0" paddingRight="0">
+                <!-- Actions -->
+                <IconButton
+                    sx:display="WHEN row_editing IS undefined THEN inline-flex ELSE none"
+                    icon='Edit'
+                    color='grey700'
+                    href="flow:rowActionEdit"
+                />
+                <IconButton
+                    sx:display="WHEN row_editing IS true THEN inline-flex ELSE none"
+                    icon='Send'
+                    color='grey700'
+                    href="flow:rowActionSubmit"
+                />
+            </Column>
+            <Column width='min-content' >
+                <!-- Actions Spacer: because expander/contracter -->
+            </Column>
+
+            <Addon background='var(--nest-level-1-bg)' borderRadius="6px">
+                <Column span="auto" align="center">
+                    <Link
+                        href="flow:addFirstLevel"
+                        textContent="+ First Level"
+                    />
+                </Column>
+                <!-- WARNING:
+                    at this level, more than one column not currently supported by span="auto"
+                -->
+            </Addon>
+        </NestedTable>
+
+        <Box _for="pageOverScroll" height="300px" />
+
+    </PageContent>
+</Page>

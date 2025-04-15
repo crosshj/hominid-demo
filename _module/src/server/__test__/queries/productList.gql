@@ -1,0 +1,13 @@
+query productList($input: ProductSearchInput) {
+	product(input: $input) {
+		id
+		sku
+		name
+		category
+		images
+		tagline
+		description
+		price
+		__typename
+	}
+}

@@ -1,0 +1,19 @@
+query getListView($input: [ProcInput]) {
+	ListProc(input: $input) {
+		uuid
+		name
+		cacheExpires
+		error
+		results {
+			columns {
+				key
+				label
+				hidden
+				target
+				properties
+				order
+			}
+			rows
+		}
+	}
+}

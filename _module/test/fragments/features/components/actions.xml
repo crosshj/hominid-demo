@@ -1,0 +1,154 @@
+<Page key='childButton'>
+    <!-- FLOWS -->
+    <Flow key='gotoFeaturesComponents'>
+        <Navigate route='features' />
+    </Flow>
+
+    <Flow key='testIfIsCalled'>
+        <Confirm title='Dummy'>
+            called.
+        </Confirm>
+    </Flow>
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label="Features / Components / Actions">
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                flow="gotoFeaturesComponents"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Markdown>
+            TODO:
+            - need to add more documentation about what should and shouldn't work (supported vs not)
+            - target = [new,blank] scenario handled and documented
+            - regular href support (across the board)
+            - external links should open externally; currently this fails as a navigate to: https://{siteroot}/https:/{external}
+        </Markdown>
+        <Box
+            display='flex'
+            flexDirection='column'
+            alignItems="flex-start"
+        >
+            <Box
+                display='flex'
+                justifyContent="flex-start"
+                alignItems="center"
+                gap="2"
+            >
+                <Typography>Buttons</Typography>
+                <Button
+                    flow="testIfIsCalled"
+                    label="'flow'"
+                />
+                <Button
+                    useFlow="testIfIsCalled"
+                    label="'useFlow'"
+                    
+                    leftIcon='Search'
+                    leftIconColor='Indigo800'
+
+                    rightIcon='Search'
+                    rightIconColor='Indigo800'
+                />
+                <Button
+                    href="flow:testIfIsCalled"
+                    label="'href'"
+                />
+            </Box>
+
+            <Box
+                display='flex'
+                justifyContent="flex-start"
+                alignItems="center"
+                gap="2"
+                sx="mt:4"
+            >
+                <Typography>Links</Typography>
+                <Link flow="testIfIsCalled">'flow'</Link>
+                <Link useFlow="testIfIsCalled">'useFlow'</Link>
+                <Link href="flow:testIfIsCalled">'href'</Link>
+            </Box>
+
+            <Box
+                display='flex'
+                justifyContent="flex-start"
+                alignItems="center"
+                gap="2"
+                sx="mt:4"
+            >
+                <Typography>IconButtons</Typography>
+
+                <Box
+                    display='flex'
+                    flexDirection='column'
+                >
+                    <Typography>'flow'</Typography>
+                    <IconButton
+                        icon='Search'
+                        flow="testIfIsCalled"
+                    />
+                </Box>
+
+                <Box
+                    display='flex'
+                    flexDirection='column'
+                >
+                    <Typography>'useFlow'</Typography>
+                    <IconButton
+                        icon='Search'
+                        useFlow="testIfIsCalled"
+                    />
+                </Box>
+                <Box
+                    display='flex'
+                    flexDirection='column'
+                >
+                    <Typography>'href'</Typography>
+                    <IconButton
+                        icon='Search'
+                        href="flow:testIfIsCalled"
+                    />
+                </Box>
+            </Box>
+
+            <Box
+                display='flex'
+                justifyContent="flex-start"
+                alignItems="center"
+                gap="2"
+                sx="mt:4"
+            >
+                <Typography>Chips</Typography>
+
+                <Chip
+                    label="'href'"
+                    href='flow:testIfIsCalled'
+                    backgroundColor='green800'
+                    icon='CheckCircle'
+                />
+                <Chip
+                    label="'flow'"
+                    flow='testIfIsCalled'
+                    backgroundColor='deepOrange800'
+                    icon='Error'
+                />
+                <Chip
+                    label="'useFlow'"
+                    useFlow='testIfIsCalled'
+                    backgroundColor='deepOrange800'
+                    icon='Error'
+                />
+            </Box>
+        </Box>
+    </PageContent>
+</Page>

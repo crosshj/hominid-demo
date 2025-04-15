@@ -1,0 +1,9 @@
+mutation submitForm($input: [ProcInput]) {
+	FormProc(input: $input) {
+		cacheExpires
+		name
+		uuid
+		results
+		error
+	}
+}

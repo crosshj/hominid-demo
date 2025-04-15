@@ -1,0 +1,15 @@
+<Page key="gaant">
+    <PageContent>
+        <Markdown>
+            ### Gantt Chart
+
+            we need a custom Gaant component
+            TODO: this component
+            ```xml
+                <Gantt for="testing"/>
+            ```
+            if you don't see it below, then something went wrong
+        </Markdown>
+        <Gantt for="testing"/>
+    </PageContent>
+</Page>

@@ -1,0 +1,207 @@
+<Page key='childStandalonePills'>
+    <!-- DATA -->
+    <Data
+        name='pillData'
+        defaultValue='Pre-Hire'
+    />
+
+    <!-- FLOWS -->
+
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label="Features / Components / Pill">
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Pill useData="pillData">
+            <Case
+                when="Active"
+                icon="check_circle"
+                color="green800"
+            />
+            <Case
+                when="Pre-Hire"
+                icon="add_circle"
+                color="lightGreen600"
+            />
+            <Case
+                when="Signed"
+                icon="create"
+                color="green[500]"
+                color="indigo900"
+            />
+            <Case
+                when="In-Active"
+                icon="circle"
+                color="amber600"
+            />
+            <Case
+                when="DNU"
+                icon="cancel"
+                color="deepOrange800"
+            />
+            <Case
+                when="???"
+                icon="help"
+                color="#777"
+            />
+        </Pill>
+        <Spacing space='4' />
+        <Data
+            name='jobOrdersChildCreateBranchClientShifts'
+            getOpts='ui.sp_OLBranchClientShiftsByBranchClientID'
+            param_BranchClientID='static_8'
+        />
+        <Data
+            name='jobOrdersChildCreateShiftByShiftDef'
+            getData='dbo.sp_BranchClientShiftDetailsGetByJobOrderIDShiftDefID'
+            param_jobOrderID='static_6'
+            param_shiftDefID='global_addShift.shiftDefID'
+        />
+        <Button
+            label='Add Shift'
+            leftIcon='Add'
+            variant='text'
+        />
+        <Spacing space='4' />
+        <GridContainer>
+            <OptionList
+                label='Shift'
+                source='jobOrdersChildCreateBranchClientShifts'
+                useData='addShift.shiftDefID'
+                xs='4'
+            />
+            <Input
+                label='# Assignment Slots'
+                useData='jobOrdersChildCreateNumSlots'
+                xs='2'
+            />
+        </GridContainer>
+        <Data
+            name='jobOrdersChildCreateSchedule.Sunday'
+            defaultValue='true'
+        />
+        <Data
+            name='jobOrdersChildCreateSchedule.Monday'
+            defaultValue='false'
+        />
+<!--         <Data
+            name='jobOrdersChildCreateSchedule.Tuesday'
+            defaultValue='false'
+        />
+        <Data
+            name='jobOrdersChildCreateSchedule.Wednesday'
+            defaultValue='false'
+        />
+        <Data
+            name='jobOrdersChildCreateSchedule.Thursday'
+            defaultValue='false'
+        />
+        <Data
+            name='jobOrdersChildCreateSchedule.Friday'
+            defaultValue='false'
+        />
+        <Data
+            name='jobOrdersChildCreateSchedule.Saturday'
+            defaultValue='false'
+        /> -->
+        <Data
+            name='jobOrdersChildCreateSchedule'
+            defaultValue='false'
+        />
+        <Spacing space='2' />
+        <Typography
+            useData='jobOrdersChildCreateSchedule'
+            whitespace='pre-wrap'
+            my='4'
+        >
+            {{global_jobOrdersChildCreateSchedule}}
+        </Typography>
+        <Box
+            display='flex'
+            justifyContent='flex-start'
+            gap='2'
+        >
+            <Checkbox
+                label='S'
+                value='{{global_jobOrdersChildCreateSchedule.Sunday}}'
+                useData='jobOrdersChildCreateSchedule'
+                checked='global_jobOrdersChildCreateSchedule.Sunday'
+            />
+            <Checkbox
+                label='M'
+                value='{{global_jobOrdersChildCreateSchedule.Monday}}'
+                useData='jobOrdersChildCreateSchedule'
+                checked='global_jobOrdersChildCreateSchedule.Monday'
+            />
+<!--             <Checkbox
+                label='T'
+                value='jobOrdersChildCreateSchedule.Tuesday'
+                useData='jobOrdersChildCreateSchedule'
+            />
+            <Checkbox
+                label='W'
+                value='jobOrdersChildCreateSchedule.Wednesday'
+                useData='jobOrdersChildCreateSchedule'
+            />
+            <Checkbox
+                label='Th'
+                value='jobOrdersChildCreateSchedule.Thursday'
+                useData='jobOrdersChildCreateSchedule'
+            />
+            <Checkbox
+                label='F'
+                value='jobOrdersChildCreateSchedule.Friday'
+                useData='jobOrdersChildCreateSchedule'
+            />
+            <Checkbox
+                label='Sa'
+                value='jobOrdersChildCreateSchedule.Saturday'
+                useData='jobOrdersChildCreateSchedule'
+            /> -->
+        </Box>
+        <DataEditView source='jobOrdersChildCreateShiftByShiftDef'>
+            <Column
+                key='supervisor'
+                label='Supervisor'
+            />
+            <Column
+                key='startTime'
+                label='Start Time'
+            />
+            <Column
+                key='duration'
+                label='Expected Hours'
+            />
+            <Column
+                key='payRate'
+                label='Pay Rate'
+            />
+            <Column
+                key='billRate'
+                label='Bill Rate'
+            />
+            <Column
+                key='OTBillRate'
+                label='Overtime Bill Rate'
+            />
+            <Column
+                key='DTBillRate'
+                label='Doubletime Bill Rate'
+            />
+        </DataEditView>
+
+    </PageContent>
+</Page>

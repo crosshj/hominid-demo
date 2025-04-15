@@ -1,0 +1,41 @@
+name: NPM Publish AUTO
+on:
+  push:
+    branches:
+      - main
+jobs:
+  npm-publish-auto:
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.head_commit.message, 'Release') }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+          scope: 'anthroware_dev'
+
+      # version
+      - run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}-${new Date().toISOString().replace(/\D/g,"").replace(/^(.{8})(.{4}).*/, "$1-$2")}`' >> $GITHUB_ENV
+      - run: npm version --no-git-tag-version "${{ env.PACKAGE_VERSION }}"
+
+      # install / build
+      - run: npm install
+      - run: npm install
+        working-directory: ./src/client
+      - run: npm install
+        working-directory: ./src/server
+      - run: npm run build
+
+      # publish / git tag
+      - run: npm publish --ignore-scripts --access=restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: package-version-to-git-tag
+        uses: pkgdeps/git-tag-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repo: ${{ github.repository }}
+          version: ${{ env.PACKAGE_VERSION }}
+          git_commit_sha: ${{ github.sha }}
+          git_tag_prefix: 'v'

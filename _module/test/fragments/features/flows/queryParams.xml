@@ -1,0 +1,161 @@
+<Page>
+
+    <!-- DATA -->
+    <Data
+        name="arrayParam"
+        defaultValue="[1,2,3,4]"
+    />
+    <Data
+        name="arrayParamResult"
+        defaultValue=""
+    />
+
+    <Data name="paybillChildTalentPayAssignments" />
+    <Data
+        name='paybillChildTalentPayPayPeriodDetails'
+        getData='dbo.sp_PayPeriodGetByPayPeriodID'
+        param_payPeriodID='static_78'
+    />
+    <Data
+        name='paybillChildTalentPayAdditionalPays'
+        defaultValue="{assignment: '-99', payType: '4', regularTime: '0', overTime: '0', doubleTime: '0', totalHours: '0' }"
+    />
+
+    <!-- FLOWS -->
+    <Flow key='issueQuery'>
+        <Query
+            proc="ui.sp_Upsert"
+            procArgs="featuresFlowsQueryStaticParamsData"
+            param_skills='global_arrayParam'
+            out_arrayParamResult='results.message'
+        />
+    </Flow>
+    <Flow key='querySetData'>
+        <Query
+            proc='ui.sp_Upsert'
+            procArgs='ui.sp_OLActiveAssignmentsByTalentIDDates'
+            param_resultFormat='options'
+            param_talentID='static_409'
+            param_rangeStartDT='global_paybillChildTalentPayPayPeriodDetails.0.PeriodStartDT'
+            param_rangeEndDT='global_paybillChildTalentPayPayPeriodDetails.0.PeriodEndDT'
+            out_paybillChildTalentPayAssignments="results"
+        />
+    </Flow>
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label='Features / Flows / Query Params'>
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Typography
+            variant="h2"
+            my="4"
+        >
+            Query With Array Params
+        </Typography>
+        <CodeBlock>
+            <Data
+                name="arrayParam"
+                defaultValue="[1,2,3,4]"
+            />
+            <Flow key='issueQuery'>
+                <Query
+                    proc="ui.sp_Upsert"
+                    procArgs="featuresFlowsQueryStaticParamsData"
+                    param_skills='global_arrayParam'
+                    out_arrayParamResult='results.message'
+                />
+            </Flow>
+        </CodeBlock>
+        <Box
+            sx="py:2"
+            display='flex'
+            flexDirection="column"
+            gap="2"
+        >
+            <Alert>
+                Will call query with array value, ie. skills = 1,2,3,4.  Should see results which indicate this happened.
+            </Alert>
+            <Button
+                label='Query with Array params'
+                flow='issueQuery'
+            />
+        </Box>
+
+        <Typography
+            useData="arrayParamResult"
+            display="WHEN global_arrayParamResult THEN block ELSE none"
+        >
+            {{ global_arrayParamResult }}
+        </Typography>
+
+
+        <Typography
+            variant="h2"
+            my="4"
+        >
+            Query With ResultFormat
+        </Typography>
+        <CodeBlock>
+            <Data name="paybillChildTalentPayAssignments" />
+            <Data
+                name='paybillChildTalentPayPayPeriodDetails'
+                getData='dbo.sp_PayPeriodGetByPayPeriodID'
+                param_payPeriodID='static_78'
+            />
+            <Data
+                name='paybillChildTalentPayAdditionalPays'
+                defaultValue="{assignment: '-99', payType: '4', regularTime: '0', overTime: '0', doubleTime: '0', totalHours: '0' }"
+            />
+
+            <Flow key='querySetData'>
+                <Query
+                    proc='ui.sp_Upsert'
+                    procArgs='ui.sp_OLActiveAssignmentsByTalentIDDates'
+                    param_resultFormat='options'
+                    param_talentID='static_409'
+                    param_rangeStartDT='global_paybillChildTalentPayPayPeriodDetails.0.PeriodStartDT'
+                    param_rangeEndDT='global_paybillChildTalentPayPayPeriodDetails.0.PeriodEndDT'
+                    out_paybillChildTalentPayAssignments="results"
+                />
+            </Flow>
+        </CodeBlock>
+        <Box
+            sx="py:2"
+            display='flex'
+            flexDirection="row"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                label='Execute'
+                href='flow:querySetData'
+            />
+            <Typography>
+                - After you hit this button, the options list below should have values in it
+            </Typography>
+        </Box>
+
+        <TextField
+            select
+            label='Assignment'
+            options='global_paybillChildTalentPayAssignments'
+            value='global_paybillChildTalentPayAdditionalPays.assignment'
+            fullWidth
+            xs='3'
+        />
+
+    </PageContent>
+</Page>

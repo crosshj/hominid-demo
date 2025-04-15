@@ -1,0 +1,10 @@
+query getMenus($input: MenuInput) {
+	UIGetMenus(input: $input) {
+		menu_id
+		menu_name
+		menu_item_id
+		menu_item_name
+		item_order
+		TargetContentName
+	}
+}

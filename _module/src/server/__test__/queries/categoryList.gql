@@ -1,0 +1,7 @@
+query categoryList($input: CategoryInput) {
+	category(input: $input) {
+		id
+		name
+		__typename
+	}
+}

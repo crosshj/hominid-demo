@@ -1,0 +1,480 @@
+<Page key='childStandalonePills'>
+    <!-- DATA -->
+
+    <!-- DATE & TIME -->
+    <Data
+        name='datetime'
+        defaultValue='2019-05-24T19:30'
+    />
+    <Data
+        name='datetimeDBGlobalFormat'
+        defaultValue='2019-05-24T19:30:00.000Z'
+    />
+    <Data
+        name='date'
+        defaultValue='2019-05-24'
+    />
+    <Data
+        name='month'
+        defaultValue='2018-05'
+    />
+    <Data
+        name='week'
+        defaultValue='2019-W18'
+    />
+    <Data
+        name='time'
+        defaultValue='09:00'
+    />
+    <!-- SELECT -->
+    <Data
+        name='dataYesNo'
+        getOpts='YesNo'
+    />
+    <Data
+        name="selected"
+        defaultValue='{ "yesno": "1" }'
+    />
+
+    <!-- TEXT/MISC -->
+    <Data name="simple" defaultValue="Lorem ipsum" />
+    <Data name="multiline" defaultValue="Lorem ipsum dolor simet et statum" />
+    <Data name="number" defaultValue="123456" />
+    <Data name="number" defaultValue="123456" />
+
+    <!-- FLOWS -->
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label="Features / Components / TextField">
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Spacing space='2'/>
+        <Box
+            display='flex'
+            flexDirection="column"
+            alignItems="flex-start"
+            gap="4"
+            marginBottom="16"
+        >
+            <Card
+                label="About"
+                showMenu='false'
+                collapsible
+                collapsed
+            >
+                <Box
+                    gap="2"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="flex-start"
+                    mt="4"
+                    mb="4"
+                >
+                    <Typography variant="h2">Docs: </Typography>
+                    <Link href="https://mui.com/material-ui/react-text-field/" target="blank">
+                        TextField MUI Docs
+                    </Link>
+
+                    <Typography variant="h2">Input Types</Typography>
+                    <Typography whiteSpace="pre-wrap">
+                        Use TextField's for input fields, but only where input *type* is supported, eg. type="date".
+                    </Typography>
+                    <Box display="flex" flexDirection="column" gap="2">
+                        <Typography variant="h2">Not supported:</Typography>
+                        <Typography whiteSpace="pre-wrap">
+                            file - MUI recommends 3rd party libs
+                            color - MUI recommends 3rd party libs.
+                            range - MUI has its own component.
+                            button - MUI has its own Component.
+                            hidden - MUI has its own Component.
+                        </Typography>
+                        <Typography variant="small" color="orange">
+                            ** They are inputs, but their behaviors differ a lot from textfields from a semantic perspective.
+                        </Typography>
+                    </Box>
+                    <Box display="flex" flexDirection="column" gap="2">
+                        <Typography variant="h2">Maybe:</Typography>
+                        <Typography whiteSpace="pre-wrap">
+                            Inner icons - Need to check if is feasible at the moment
+                            checkbox, radio - need to check
+                        </Typography>
+                    </Box>
+                    <Box display="flex" flexDirection="column" gap="2">
+                        <Typography variant="h2">Supported types:</Typography>
+                        <Typography variant="span" color="gray">version 0.0.1</Typography>
+                        <Typography variant="p">datetime-local, date, month, week, time, number, text, password.</Typography>
+                        <Typography variant="h2">Supported attributes:</Typography>
+                        <Typography variant="span" color="gray">version 0.0.1</Typography>
+                        <Typography variant="p">multiline, disabled, helperText, color, focused.</Typography>
+                        <Typography variant="small" color="orange">
+                            ** Several other attributes may be compatible, but not yet confirmed. If any unexpected behavior occur, please add below and inform me asap.
+                        </Typography>
+                        <Typography variant="h2">Attributes with unexpected behavior:</Typography>
+                        <Typography whiteSpace="pre-wrap">
+                            Attribute:
+                            Expected behavior:
+                            Current behavior:
+                        </Typography>
+                    </Box>
+                    <Box display="flex" flexDirection="column" gap="2">
+                        <Typography variant="h2">Misc: </Typography>
+                        <Typography whiteSpace="pre-wrap">
+                            Controlled/Uncontrolled: Need more analysis on how forms are being handled (React's concerns).  This can mostly be ignored since framework binds data and events using Data elements and useData prop.
+                        </Typography>
+                    </Box>
+                </Box>
+            </Card>
+
+            <!-- Date -->
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Date Time Picker</Typography>
+                <CodeBlock>
+                    <TextField
+                        label="Date Time"
+                        type="datetime-local"
+                        value="global_datetime"
+                        inputProps="min:2019-01-24T00\:00;max:2020-05-31T00\:00"
+                        sx="minWidth:25ch"
+                    />
+                </CodeBlock>
+                <TextField
+                    label="Date Time"
+                    type="datetime-local"
+                    value="global_datetime"
+                    inputProps="min:2019-01-24T00\:00;max:2020-05-31T00\:00"
+                    sx="minWidth:25ch"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Date Time Picker (with global date)</Typography>
+                <Markdown>
+                    also supports this format from DB: 
+                    ```xml
+                    <Data
+                        name='datetimeDBGlobalFormat'
+                        defaultValue='2019-05-24T19:30:00.000Z'
+                    />
+                    ```
+                </Markdown>
+                <TextField
+                    label="Date Time"
+                    type="datetime-local"
+                    value="global_datetimeDBGlobalFormat"
+                    inputProps="min:2019-01-24T00\:00;max:2020-05-31T00\:00"
+                    sx="minWidth:25ch"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Date Picker (no time)</Typography>
+                <CodeBlock>
+                    <TextField
+                        type="date"
+                        value="global_date"
+                        inputProps="min:2019-01-24;max:2020-05-31"
+                        sx="minWidth:25ch"
+                    />
+                </CodeBlock>
+                <TextField
+                    type="date"
+                    value="global_date"
+                    inputProps="min:2019-01-24;max:2020-05-31"
+                    sx="minWidth:25ch"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Date Picker (month)</Typography>
+                <CodeBlock>
+                    <TextField
+                        type="month"
+                        value="global_month"
+                        inputProps="min:2018-03"
+                        sx="minWidth:25ch"
+                    />
+                </CodeBlock>
+                <TextField
+                    type="month"
+                    value="global_month"
+                    inputProps="min:2018-03"
+                    sx="minWidth:25ch"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Date Picker (week)</Typography>
+                <CodeBlock>
+                    <TextField
+                        type="week"
+                        value="global_week"
+                        inputProps="min:2019-W03,max:2020-W05"
+                        sx="minWidth:25ch"
+                    />
+                </CodeBlock>
+                <TextField
+                    type="week"
+                    value="global_week"
+                    inputProps="min:2019-W03,max:2020-W05"
+                    sx="minWidth:25ch"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Time Picker</Typography>
+                <CodeBlock>
+                    <TextField
+                        type="time"
+                        value="global_time"
+                        inputProps="min:03\:00\:00;max:18\:30\:00"
+                        sx="minWidth:25ch"
+                    />
+                </CodeBlock>
+                <TextField
+                    type="time"
+                    value="global_time"
+                    inputProps="min:03\:00\:00;max:18\:30\:00"
+                    sx="minWidth:25ch"
+                />
+            </Box>
+
+            <!-- Select -->
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Option List</Typography>
+                <CodeBlock>
+                    <TextField
+                        select
+                        value="global_selected.yesno"
+                        options='global_dataYesNo'
+                        sx="minWidth:25ch"
+                    />
+                </CodeBlock>
+                <TextField
+                    select
+                    value="global_selected.yesno"
+                    options='global_dataYesNo'
+                    sx="minWidth:25ch"
+                />
+            </Box>
+            <!-- TextField -->
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">TextField</Typography>
+                <CodeBlock>
+                    <TextField
+                        value="global_simple"
+                    />
+                </CodeBlock>
+                <TextField
+                    value="global_simple"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">TextField Variants/Sizes/Color</Typography>
+                <Box gap="2" display="flex" alignItems="flex-start">
+                    <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                        <CodeBlock>
+                            <TextField
+                                value="global_simple"
+                                variant="filled"
+                                size="small"
+                            />
+                        </CodeBlock>
+                        <TextField
+                            value="global_simple"
+                            variant="filled"
+                            size="small"
+                        />
+                    </Box>
+                    <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                        <CodeBlock>
+                            <TextField
+                                value="global_simple"
+                                variant="outlined"
+                                size="large"
+                            />
+                        </CodeBlock>
+                        <TextField
+                            value="global_simple"
+                            variant="outlined"
+                            size="large"
+                        />
+                    </Box>
+                    <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                        <CodeBlock>
+                            <TextField
+                                value="global_simple"
+                                color="warning"
+                                focused
+                            />
+                        </CodeBlock>
+                        <TextField
+                            value="global_simple"
+                            color="warning"
+                            focused
+                        />
+                    </Box>
+                </Box>
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">TextField with helper text</Typography>
+                <CodeBlock>
+                    <TextField
+                        value="global_simple"
+                        helperText="Some helper text"
+                    />
+                </CodeBlock>
+                <TextField
+                    value="global_simple"
+                    helperText="Some helper text"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">TextField Multiline</Typography>
+                <CodeBlock>
+                    <TextField
+                        value="global_multiline"
+                        options='global_dataYesNo'
+                        sx="minWidth:25ch"
+                        disabled
+                    />
+                </CodeBlock>
+                <TextField
+                    value="global_multiline"
+                    options='global_dataYesNo'
+                    sx="minWidth:25ch"
+                    multiline
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">TextField (Password)</Typography>
+                <CodeBlock>
+                    <TextField
+                        type="password"
+                        value="global_simple"
+                    />
+                </CodeBlock>
+                <TextField
+                    type="password"
+                    value="global_simple"
+                />
+            </Box>
+
+            <!-- <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Disabled TextField</Typography>
+                <CodeBlock>
+                    <TextField
+                        select
+                        value="global_selected.yesno"
+                        options='global_dataYesNo'
+                        sx="minWidth:25ch"
+                        disabled
+                    />
+                </CodeBlock>
+                <TextField
+                    select
+                    value="global_selected.yesno"
+                    options='global_dataYesNo'
+                    sx="minWidth:25ch"
+                    disabled
+                />
+            </Box> -->
+
+            <!-- Number  -->
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Number TextField</Typography>
+                <Link href="https://mui.com/material-ui/react-text-field/#type-quot-number-quot" target="blank">
+                    Number limitations
+                </Link>
+                <CodeBlock>
+                    <TextField
+                        type="number"
+                        value="global_number"
+                    />
+                </CodeBlock>
+                <TextField
+                    type="number"
+                    value="global_number"
+                />
+            </Box>
+
+            <Box gap="2" display="flex" flexDirection="column" alignItems="flex-start">
+                <Typography variant="h2">Disabled with When</Typography>
+                <Typography variant="h3" marginTop="2">Basic Example</Typography>
+                <Typography whiteSpace="pre-wrap">
+                    When you change the value below you should see the TextField immediately become disabled.
+                    This example also illustrates global_, double-quotes, and Boolean from String used in a WHEN statement.
+                </Typography>
+                <CodeBlock>
+                    <TextField
+                        label='Disable Me'
+                        value='global_simple'
+                        fullWidth
+                        disabled='WHEN global_simple IS "Lorem ipsum" THEN false ELSE true'
+                        xs='4'
+                    />
+                </CodeBlock>
+                <TextField
+                    label='Disable Me'
+                    value='global_simple'
+                    fullWidth
+                    disabled='DEBUG WHEN global_simple IS "Lorem ipsum" THEN false ELSE true'
+                    xs='4'
+                />
+
+                <Typography variant="h3" marginTop="2">With Nested Properties</Typography>
+                <Typography whiteSpace="pre-wrap">
+                    When you change the select box below, the following TextField will be disabled.
+                    This example also illustrates same features as above PLUS nested properties used in a WHEN statement.
+                </Typography>
+                <CodeBlock>
+                    <TextField
+                        select
+                        value="global_selected.yesno"
+                        options='global_dataYesNo'
+                        sx="minWidth:25ch"
+                    />
+                    <TextField
+                        label='Disable Me'
+                        value='global_simple'
+                        fullWidth
+                        disabled='WHEN global_selected.yesno IS "1" THEN true ELSE false'
+                        xs='4'
+                    />
+                </CodeBlock>
+                <TextField
+                    select
+                    value="global_selected.yesno"
+                    options='global_dataYesNo'
+                    sx="minWidth:25ch"
+                />
+                <TextField
+                    label='Disable Me, Too'
+                    value='global_simple'
+                    fullWidth
+                    disabled='DEBUG WHEN global_selected.yesno IS "1" THEN true ELSE false'
+                    xs='4'
+                />
+            </Box>
+
+        </Box>
+    </PageContent>
+</Page>

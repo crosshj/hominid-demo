@@ -1,0 +1,20 @@
+<Page>
+    <!-- #region PAGE DATA -->
+    <!-- #endregion PAGE DATA -->
+
+    <!-- FLOWS -->
+    <Flow key='goBack'>
+    </Flow>
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label='Wiki'>
+
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Typography>
+            Wiki Page!
+        </Typography>
+    </PageContent>
+</Page>

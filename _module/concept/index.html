@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>chisel</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="color-scheme" content="dark light" />
+		<link rel="stylesheet" href="index.css" />
+		<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" />
+	</head>
+
+	<body></body>
+
+	<script type="module">
+		import Fragments from './modules/fragments.js';
+		import Events from './modules/events.js';
+
+		Events.attach();
+		Fragments.update({ path: 'Site.xml', swap: 'body' });
+	</script>
+</html>

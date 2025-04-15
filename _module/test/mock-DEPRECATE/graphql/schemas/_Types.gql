@@ -1,0 +1,12 @@
+input UserInput {
+	id: String
+}
+
+input ClientInput {
+	id: String
+}
+
+input MenuInput {
+	user: UserInput
+	client: ClientInput
+}

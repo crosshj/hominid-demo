@@ -1,0 +1,95 @@
+<Page>
+
+    <!-- DATA -->
+    <Data
+        name="address"
+        defaultValue='{ "postalCode":"30076"}'
+    />
+    <Data
+        name="geocodeId"
+        defaultValue=""
+    />
+
+    <!-- FLOWS -->
+    <Flow key='readGeocode'>
+        
+        <Confirm title='Query for Geocode'>
+            Use County name: {{address.county.name}}
+            Use City name: {{address.city.name}}
+            Use State name: {{address.state.name}}
+            Use postal code: {{address.postalCode}}
+
+            Get geocode?
+        </Confirm>
+        <Query
+            proc="ui.sp_Upsert"
+            call="vertexGetGeocode"
+            flatParams="false"
+            param_body='global_address'
+            out_geocodeId='results.geocodes[0].geocodeId'
+        />
+
+        <!--
+            here we would submit the client/site along with geocode from previous step
+        -->
+    </Flow>
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label='Features / Flows / Query Call'>
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Box
+            sx="py:2"
+            display='flex'
+            flexDirection="column"
+            gap="2"
+        >
+            <Alert>
+                We use Vertex integration here as an example of how Configs can specify an external API to be called.
+                Specifically, we will verify an address returns a geocode from Vertex's API's.
+                Make sure that either State Name or Postal Code is defined below wehn submitting.
+            </Alert>
+            <Input
+                label='County Name'
+                useData='address.county.name'
+            />
+            <Input
+                label='City Name'
+                useData='address.city.name'
+            />
+            <Input
+                label='State Name'
+                useData='address.state.name'
+            />
+            <Input
+                label='Postal Code'
+                useData='address.postalCode'
+            />
+            <Button
+                label='Get Geocode'
+                flow='readGeocode'
+            />
+        </Box>
+
+        <Typography
+            useData="geocodeId"
+            display="WHEN global_geocodeId THEN block ELSE none"
+        >
+            Geocode result: {{ global_geocodeId }}
+        </Typography>
+
+    </PageContent>
+</Page>

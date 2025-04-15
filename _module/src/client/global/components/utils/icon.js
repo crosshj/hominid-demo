@@ -1,0 +1,15 @@
+export const iconMap = {
+	success: 'check_circle_filled',
+	warning: 'circle_rounded',
+	error: 'cancel_rounded',
+	info: 'flag_circle_filled',
+	Active: 'check_circle_filled',
+	Inactive: 'cancel_rounded',
+	Prospect: 'flag_circle_filled',
+	current: 'check_circle_filled',
+	edit: 'cancel_rounded',
+	'1-31': 'check_circle_filled',
+	'31-60': 'check_circle_filled',
+	'61-90': 'check_circle_filled',
+	'>90': 'check_circle_filled',
+};

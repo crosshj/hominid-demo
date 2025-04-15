@@ -1,0 +1,82 @@
+export const menuRoot = JSON.stringify({
+	data: {
+		ContextProc: [
+			{
+				cacheExpires: null,
+				name: 'ui.sp_UIContextGetComponentsByUserID',
+				uuid: 'd500f308-f761-45b2-851f-afafe0b0800f',
+				results: [
+					{
+						key: 'userprofile',
+						label: 'Logout',
+						order: '2',
+						type: 'LinkMenu',
+						value: '',
+					},
+					{
+						key: 'darkLight',
+						label: 'Dark | Light',
+						order: '1',
+						type: 'LinkMenu',
+						value: '',
+					},
+					// left nav
+					{
+						key: 'framework/home',
+						label: 'Home',
+						order: '2',
+						properties: 'icon:Home',
+					},
+					{
+						key: 'framework/addIssue',
+						label: 'Add Issue',
+						order: '3',
+						properties: 'icon:Add',
+					},
+					{
+						key: 'framework/issues',
+						label: 'Issues',
+						order: '4',
+						properties: 'icon:ListAlt',
+					},
+					{
+						key: 'framework/board',
+						label: 'Board',
+						order: '4.1',
+						properties: 'icon:ViewKanban',
+					},
+					{
+						key: 'framework/gantt',
+						label: 'Gantt Chart',
+						order: '4.3',
+						properties: 'icon:Analytics',
+					},
+					{
+						key: 'framework/wiki',
+						label: 'Wiki',
+						order: '5',
+						properties: 'icon:MenuBook',
+					},
+					{
+						key: 'framework/files',
+						label: 'Files',
+						order: '6',
+						properties: 'icon:DriveFolderUpload',
+					},
+					{
+						key: 'framework/projectSettings',
+						label: 'Project Settings',
+						order: '10',
+						properties: 'icon:Settings',
+					},
+					{
+						key: 'features',
+						label: 'Features',
+						order: '11',
+						properties: 'icon:Settings',
+					},
+				],
+			},
+		],
+	},
+});

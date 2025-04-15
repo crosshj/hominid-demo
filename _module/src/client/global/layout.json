@@ -1,0 +1,6 @@
+{
+    "routes": {
+        "primary": ["Billing", "Payments"],
+        "secondary": ["Talent", "Clients"]
+    }
+}

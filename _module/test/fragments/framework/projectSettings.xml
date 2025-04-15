@@ -1,0 +1,20 @@
+<Page>
+    <!-- #region PAGE DATA -->
+    <!-- #endregion PAGE DATA -->
+
+    <!-- FLOWS -->
+    <Flow key='goBack'>
+    </Flow>
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label='Project Settings'>
+
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Typography>
+            Project Settings Page!
+        </Typography>
+    </PageContent>
+</Page>

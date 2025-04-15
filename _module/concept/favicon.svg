@@ -1,0 +1,9 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 500 500"
+    height="32px" width="32px"
+>
+    <path d="M 415 0 L 500 500 L 0 500 L 90 0" style="fill: #00bcd4;"></path>
+    <path d="M 130 0 L 100 240 L 390 240 L 370 0" style="fill: white; opacity:0.4;"></path>
+    <path d="M 100 240 L 0 500 L 500 500 L 390 240" style="fill: #448; opacity:0.5;"></path>
+</svg>

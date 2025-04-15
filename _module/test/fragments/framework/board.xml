@@ -1,0 +1,15 @@
+<Page key="board">
+    <PageContent>
+        <Markdown>
+            ### Board
+
+            a board needs a Kanban component
+            todo: this component
+            ```xml
+                <Kanban for="testing"/>
+            ```
+            if you don't see it below, then something went wrong
+        </Markdown>
+        <Kanban for="testing"/>
+    </PageContent>
+</Page>

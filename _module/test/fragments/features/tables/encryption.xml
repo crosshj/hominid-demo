@@ -1,0 +1,85 @@
+<Page>
+    <!-- DATA -->
+    <Data
+        name='tableData'
+        proc='ui.sp_GetResourceListViews'
+        procArg='featuresCrypto'
+    />
+
+    <!-- FLOWS -->
+
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label="Features / Tables / Encryption">
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+
+    <!-- PAGE CONTENT-->
+    <PageContent>
+        <NestedTable
+            source="tableData"
+            collapsible='false'
+            indented="false"
+        >
+            <Nest>
+                <Level
+                    param='*'
+                    name=''
+                />
+            </Nest>
+            <Column
+                variant="icon"
+                label="..."
+                labelHidden
+            >
+                <Case
+                    when=''
+                    icon='CircleRounded'
+                />
+            </Column>
+            <Column
+                key="FirstName"
+                label="First"
+            />
+            <Column
+                key="LastName"
+                label="Last"
+            />
+            <Column
+                key="Secret"
+                label="Secret"
+            />
+            <Column
+                key="Address1"
+                label="Address 1"
+            />
+            <Column
+                key="Address2"
+                label="Address 2"
+            />
+            <Column
+                key="City"
+                label="City"
+            />
+            <Column
+                key="State"
+                label="State"
+            />
+            <Column
+                key="ZipCode"
+                label="Zip"
+            />
+        </NestedTable>
+    </PageContent>
+</Page>

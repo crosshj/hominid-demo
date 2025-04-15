@@ -1,0 +1,139 @@
+<Page>
+    <!-- DATA -->
+    <Data
+        name='featuresNonMUIIcons'
+        proc='ui.sp_GetResourceListViews'
+        procArg='jobOrdersChildDetails_Applicants'
+    />
+    <Data
+        name='featuresNonMUIIconSearch'
+        defaltValue=''
+    />
+
+    <!-- FLOWS -->
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label="Features / Components / Custom Icons">
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Box
+            display='flex'
+            alignItems='center'
+            justifyContents='center'
+            gap='2'
+            sx='py:2,flex:1'
+        >
+            <Input
+                label='Search'
+                useData='featuresNonMUIIconSearch'
+            />
+            <Box
+                display='flex'
+                justifyContent='flex-end'
+                gap='1'
+            >
+                <IconButton
+                    icon='DownloadRounded'
+                    color='grey700'
+                />
+                <IconButton
+                    icon='FilterListRounded'
+                    color='grey700'
+                />
+                <IconButton
+                    icon='ViewColumnRounded'
+                    color='grey700'
+                />
+                <IconButton
+                    icon='MenuRounded'
+                    color='grey700'
+                />
+            </Box>
+        </Box>
+        <DataEditView source='featuresNonMUIIcons'>
+            <Column
+                key='applicantSelected'
+                variant='select'
+            />
+            <Column
+                key='applicantPriority'
+                label='Priority'
+                variant='icon'
+            >
+                <Case
+                    when='first'
+                    icon='RemoveCircle'
+                    color='green800'
+                />
+                <Case
+                    when='second'
+                    icon='NormalPriority'
+                />
+                <Case
+                    when='third'
+                    icon='HighPriority'
+                />
+            </Column>
+            <Column
+                key='applicantCurrentStep'
+                label='Current Step'
+            />
+            <Column
+                key='applicantName'
+                label='talentName'
+                variant='link'
+            />               
+            <Column
+                key='applicantShift'
+                label='Shift'
+                variant='link'
+            />   
+            <Column
+                key='applicantSource'
+                label='Source'
+                variant='link'
+            />
+            <Column
+                key='applicantDateApplied'
+                label='Applied'
+                variant='date'
+            />
+            <Column
+                key='applicantLastContact'
+                label='Last Contact'
+                variant='date'
+            />
+            <Column
+                key='applicantSubmitted'
+                label='Submitted'
+            />
+            <Column label='actions' labelHidden align='right'>
+                <IconButton
+                    icon='Send'
+                    color='grey700'
+                    useData=''
+                    useFlow=''
+                />
+                <IconButton
+                    icon='OpenInNewRounded'
+                    color='grey700'
+                    useData=""
+                    useFlow=""
+                />
+            </Column>
+        </DataEditView>
+    </PageContent>
+</Page>

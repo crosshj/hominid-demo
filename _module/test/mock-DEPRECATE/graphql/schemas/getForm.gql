@@ -1,0 +1,18 @@
+query getForm($input: [ProcInput]) {
+	ContextProc(input: $input) {
+		cacheExpires
+		name
+		uuid
+		results {
+			default
+			key
+			label
+			order
+			parent
+			properties
+			target
+			type
+			value
+		}
+	}
+}

@@ -1,0 +1,170 @@
+<Page>
+
+    <!-- DATA -->
+    <Data
+        name='exampleData'
+        defaultValue="-1"
+    />
+    <Data name="data1" />
+
+    <!-- FLOWS -->
+    <Flow key='gotoFeaturesFlows'>
+        <Navigate route='features' />
+    </Flow>
+
+    <Flow key='subtractOne'>
+        <SetData
+            name='global_exampleData'
+            mutate="add:1,max:4"
+        />
+    </Flow>
+    <Flow key='gotoPrev'>
+        <SetData
+            name='global_exampleData'
+            mutate="subtract:1,min:-1"
+        />
+    </Flow>
+
+    <Flow key="someFlow">
+        <SetData
+            name="global_data1"
+            data="100"
+        />
+    </Flow>
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label="Features / Flows / SetData">
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                flow="gotoFeaturesFlows"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent key="pageContent">
+        <Typography
+            variant="h2"
+            my="4"
+        >
+            Set Data (basic)
+        </Typography>
+
+        <Typography>
+            Change data without considering current value.
+        </Typography>
+
+        <CodeBlock marginBottom="4">
+            <Data name="data1" />
+
+            <Flow key="someFlow">
+                <SetData
+                    name="global_data1"
+                    data="100"
+                />
+            </Flow>
+        </CodeBlock>
+
+        <Box
+            display="flex"
+            gap="2"
+            my="4"
+        >
+            <Button
+                flow="someFlow"
+                label="Click on me to trigger above flow"
+            />
+        </Box>
+
+        <Typography
+            variant="h2"
+            my="4"
+        >
+            Mutate Data (Advanced)
+        </Typography>
+        <Typography>
+            Change data based on previous value.
+        </Typography>
+        <CodeBlock marginBottom="4">
+            <Data
+                name='exampleData'
+                defaultValue="-1"
+            />
+            <Flow key='subtractOne'>
+                <SetData
+                    name='global_exampleData'
+                    mutate="add:1,max:4"
+                />
+            </Flow>
+            <Flow key='gotoPrev'>
+                <SetData
+                    name='global_exampleData'
+                    mutate="subtract:1,min:-1"
+                />
+            </Flow>
+        </CodeBlock>
+
+        <Typography
+            variant="h3"
+            my="4"
+        >
+            Example
+        </Typography>
+
+        <Typography my="4">
+            Current : {{ global_exampleData }}
+        </Typography>
+
+        <Box
+            display="flex"
+            gap="2"
+            my="4"
+        >
+            <Button
+                flow="gotoPrev"
+                label="Minus One"
+            />
+            <Button
+                flow="subtractOne"
+                label="Plus One"
+            />
+        </Box>
+
+        <Typography
+            variant="h2"
+            my="4"
+        >
+            Flow Args
+        </Typography>
+
+        <Typography>
+            A Flow can potentially have data, which we can be accessed through "flowArgs".
+            SetData supports updating a state based on values from "flowArgs".
+        </Typography>
+
+        <CodeBlock marginBottom="4" paddingBlock="2" paddingInline="3" borderRadius="12px" backgroundColor="#f0f0f0">
+            <Data name="data1" />
+
+            <Flow key="updateSelectedRow">
+                <SetData
+                    name="global_selectedRowIndex"
+                    data="flowArgs.index"
+                />
+                <SetData
+                    name="global_selectedRow"
+                    data="flowArgs"
+                />
+                <SetData
+                    name="global_selectedPersonID"
+                    data="flowArgs.personID"
+                />
+            </Flow>
+        </CodeBlock>
+    </PageContent>
+</Page>

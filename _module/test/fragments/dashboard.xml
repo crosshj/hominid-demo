@@ -1,0 +1,9 @@
+<Page key="home">
+    <PageNavBar
+        key="pageHeader"
+        label="Dashboard"
+    />
+    <PageContent key="pageContent">
+        <Dashboard key="dashboard" />
+    </PageContent>
+</Page>

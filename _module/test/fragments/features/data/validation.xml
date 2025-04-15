@@ -1,0 +1,174 @@
+<Page>
+
+    <Validator name="userValidate">
+        <Object name="user">
+            <String name="name" min="3" max="30" required />
+            <Number name="age" minimum="1" integer required />
+            <String name="email" email />
+            <String name="website" url nullable />
+            <Date name="createdOn" defaultValue="now" />
+        </Object>
+    </Validator>
+
+    <!-- DATA -->
+    <Data
+        name='results'
+        getData="featuresDataValidationBad"
+        validate='userValidate'
+        defaultValue="{}"
+    />
+    <Data
+        name="resultsErrors"
+        defaultValue="{}"
+    />
+
+    <!-- FLOWS -->
+    <Flow key="featuresDataValidationBad">
+        <Validate
+            schema="userValidate"
+            data="results"
+        />
+        <Query
+            proc="ui.sp_Upsert"
+            procArgs="featuresDataValidationBad"
+            out_results='results'
+        />
+        <Validate
+            schema="userValidate"
+            data="results"
+            out_resultsErrors="results"
+        />
+    </Flow>
+
+    <Flow key="featuresDataValidationGood">
+        <Query
+            proc="ui.sp_Upsert"
+            procArgs="featuresDataValidationGood"
+            out_results='results'
+        />
+        <Validate
+            schema="userValidate"
+            data="results"
+            out_resultsErrors="results"
+        />
+    </Flow>
+
+
+    <!-- PAGE NAV BAR-->
+    <PageNavBar label='Features / Data / Validation'>
+        <Box
+            display='flex'
+            justifyContent="flex-end"
+            alignItems="center"
+            gap="2"
+        >
+            <Button
+                href="/features"
+                label="back"
+            />
+        </Box>
+    </PageNavBar>
+
+    <!-- PAGE CONTENT -->
+    <PageContent>
+        <Markdown>
+            The Validation component exists to assert/verify the shape of data from either database or user input.
+
+            The first part of Validation is the component which reads configuration and registers a schema with the global state.
+            The second part of Validation is hook-able functionality which binds validation events to Data and Input components.
+
+            ### Limitations
+            - we only support database validation, UI validation is planned/WIP
+            - we only support database validation, UI validation is planned/WIP
+            - little support for nested validations.  Array/Object are supported weakly.
+            - we only support one child for a Validator element
+
+            ### Planned
+            - we can validate using a Flow step
+            - we can validate using only part of a schema, see [yup github](
+                https://github.com/jquense/yup#schemavalidateatpath-string-value-any-options-object-promiseinfertypeschema-validationerror
+            )
+            - we can validate sync versus async, see [yup github](
+                https://github.com/jquense/yup#schemavalidatesyncvalue-any-options-object-infertypeschema
+            )
+            - we use a json schema to yup parser and reconcile differences/shortcomings. See [JSONSchema Reference](
+                https://json-schema.org/understanding-json-schema/index.html
+            )
+
+            ### Config
+            ```xml
+                <Validator name="userValidate">
+                    <Object name="user">
+                        <String name="name" min="3" max="30" required />
+                        <Number name="age" minimum="1" integer required />
+                        <String name="email" email />
+                        <String name="website" url nullable />
+                        <Date name="createdOn" defaultValue="now" />
+                    </Object>
+                </Validator>
+            ```
+
+            ### Example
+            You will need to check the browser's console to see if database validation is working.
+            UI validation, when complete, shows below on page load and when you click to load data.
+        </Markdown>
+
+
+        <GridContainer>
+            <TextField
+                value="global_results.name"
+                errors="global_resultsErrors.name"
+                label="Name"
+                disabled
+                fullWidth
+                xs="6"
+            />
+            <TextField
+                value="global_results.age"
+                errors="global_resultsErrors.age"
+                label="Age"
+                disabled
+                fullWidth
+                xs="6"
+            />
+            <TextField
+                value="global_results.email"
+                errors="global_resultsErrors.email"
+                label="Email"
+                disabled
+                fullWidth
+                xs="6"
+            />
+            <TextField
+                value="global_results.website"
+                errors="global_resultsErrors.website"
+                label="Website"
+                disabled
+                fullWidth
+                xs="6"
+            />
+            <TextField
+                value="global_results.createdOn"
+                errors="global_resultsErrors.createdOn"
+                label="Created On"
+                disabled
+                fullWidth
+                xs="12"
+            />
+            <Button
+                label='Load Good Data'
+                flow='featuresDataValidationGood'
+                color="success"
+            />
+            <Button
+                label='Load Bad Data'
+                flow='featuresDataValidationBad'
+                color="error"
+            />
+        </GridContainer>
+
+
+        <Box height="24em" for="overscroll"/>
+
+    </PageContent>
+</Page>

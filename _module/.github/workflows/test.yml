@@ -1,0 +1,15 @@
+#TODO: this should be part of the publish action
+# for now, set to only manually trigger
+name: Testing
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: cd src/server && npm install && cd ../..
+      - run: cd src/client && npm install && cd ../..
+      - run: npm run test
