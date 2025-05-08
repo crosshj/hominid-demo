@@ -1,0 +1,21 @@
+<MenuItem
+	href="#/home"
+	label="Home"
+	icon="Home"
+/>
+<MenuItem
+	href="#/profile"
+	label="Profile"
+	icon="profile"
+/>
+<MenuItem
+	href="#/overview"
+	label="Overview"
+	icon="overview"
+/>
+
+<MenuItem
+	href="#/browse"
+	label="Browse"
+	icon="browse"
+/>

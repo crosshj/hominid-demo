@@ -1,0 +1,24 @@
+<Page>
+	<Box
+		display="flex"
+		flexDirection="column"
+		gap="2"
+		sx:mb="200px"
+		sx:mt="1em"
+		sx:width="100%"
+		sx:maxWidth="800px"
+		sx:mx="auto"
+	>
+		<Typography variant="h1"> Welcome </Typography>
+		<!-- prettier-ignore -->
+		<Markdown>
+			this is fundpaw, a place to share and discover fundraising ideas for animal shelters!
+
+			## Introduction
+			add an intro Header
+
+			## Contact Us
+			add contact info
+		</Markdown>
+	</Box>
+</Page>

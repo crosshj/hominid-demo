@@ -1,0 +1,56 @@
+<Page>
+	<Data
+		name="fragmentPrefix"
+		defaultValue="fundpaw"
+	/>
+	<Data
+		name="pathParams"
+		route="/fundpaw/#/:path?"
+		defaultValue='{ "path": "home" }'
+	/>
+	<Data
+		name="menus"
+		getData="contextFragment"
+		param_fragment="static_menus"
+		param_fragmentPrefix="global_fragmentPrefix"
+	/>
+	<Data
+		name="mobileMenuOpen"
+		defaultValue="false"
+	/>
+	<Data
+		name="mainContent"
+		getData="contextFragment"
+		param_fragment="global_pathParams.path"
+		param_fragmentPrefix="global_fragmentPrefix"
+	/>
+
+	<Flow key="setMobileMenu">
+		<SetData
+			name="global_mobileMenuOpen"
+			data="flowArgs.value"
+		/>
+	</Flow>
+
+	<Layout
+		mobileMenuOpen="global_mobileMenuOpen"
+		setMobileMenuFn="runFlow_setMobileMenu"
+	>
+		<Header setMobileMenuFn="runFlow_setMobileMenu">
+			<Logo width="150px" />
+		</Header>
+		<Menu
+			items="global_menus"
+			selected="global_pathParams.path"
+			setMobileMenuFn="runFlow_setMobileMenu"
+		/>
+		<Content>
+			<Fragment contents="global_mainContent" />
+		</Content>
+		<Footer>
+			<Typography>footer</Typography>
+			<!-- https://blog.hubspot.com/website/website-footer -->
+		</Footer>
+		<!-- <Sidebar></Sidebar> -->
+	</Layout>
+</Page>

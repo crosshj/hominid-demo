@@ -1,3 +1,4 @@
+import React from 'react';
 import './MenuMobile.css';
 
 export const MenuMobile = ({ Menu, mobileMenuOpen, setMobileMenuFn }) => {
